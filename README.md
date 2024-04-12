@@ -1,4 +1,4 @@
-# StarbucksAtHome
+# MorseCodeMastery
 
 Open the same env in Flask backend
 ```bash
