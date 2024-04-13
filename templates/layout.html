@@ -23,41 +23,39 @@
     <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
 
     <title>Morse Code Mastery</title>
-    {% block header %}
-    {% endblock %}
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <nav id="navbar">
-                <a href="/"><span class="site_title_navbar">Morse Mastery</span></a>
-                <a href="/learn" class="navlink"><span class="menu_item">Learn</span></a>
-                <a href="/quiz/sec_1/cover" class="navlink"><span class="menu_item">Quiz</span></a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <img class="website-logo" src="https://i.ebayimg.com/images/g/13QAAOSw5AlgEWDJ/s-l1600.webp"
+                alt="website logo" />
+            <a class="navbar-brand" href="/">Morse Code Mastery</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="/">List</a>
+                    <a class="nav-link" href="/">Learn</a>
+                    <a class="nav-link" href="/">Quiz</a>
+                    <a class="nav-link" href="/">About</a>
+                </div>
+            </div>
         </div>
-        </nav>
-    </div>
-    </div>
-
-    <div class="left_arrow">
-        {% block left_arrow %}
-
-        {% endblock %}
-    </div>
-
-    <div class="right_arrow">
-        {% block right_arrow %}
-
-        {% endblock %}
-    </div>
+    </nav>
 
     <div class="container">
         {% block content %}
+
         {% endblock %}
     </div>
 
-    <div class="footnote">
-        {% block footnote %}
+    <div class="leftnote">
+        {% block leftnote %}
 
         {% endblock%}
     </div>

@@ -7,10 +7,12 @@ app = Flask(__name__)
 
 # Data
 
+# Functions
+
 
 # API Route
 @app.route('/')
-def homePage():
+def homepage():
     return render_template('home.html')
 
 if __name__ == "__main__":

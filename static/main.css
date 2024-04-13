@@ -1,0 +1,56 @@
+/* Homepage */
+.website-logo {
+    width: 5%;
+    max-width: 35px;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.cover_image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 950px;
+    min-width: 450px;
+    opacity: 0.2;
+}
+
+.title_frame {
+    position: fixed;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(1.4rem, 3.6vw, 5.3vh);
+}
+
+.subtitle_frame {
+    position: fixed;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 600px;
+    font-size: clamp(0.6em, 2.1vw, 2.2vh);
+    font-style: oblique;
+}
+
+.homeButton {
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+}
+
+
+/* Learn Part */
+
+
+
+/* Quiz Part */
