@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'introduction.js') }}"></script>
+
+<div class="title">
+    <div class="introduction">
+        Introduction to Morse Code
+    </div>
+    <div class="introtext">
+        Click the card to see & listen! Each character has its own morse code, combine it into words.
+    </div>
+    <div class="container">
+        <div class="row  justify-content-center sos">
+            <div class="col">
+                <div class="morse-code-card" data-letter="S" data-audio-url="{{ url_for('static', filename='audios/Morse-S.mp3') }}">
+                    S
+                </div>
+            </div>
+            <div class="col">
+                <div class="morse-code-card" data-letter="O" data-audio-url="{{ url_for('static', filename='audios/Morse-O.mp3') }}">
+                    O
+                </div>
+            </div>
+            <div class="col">
+                <div class="morse-code-card" data-letter="S" data-audio-url="{{ url_for('static', filename='audios/Morse-S.mp3') }}">
+                    S
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
