@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<script type="text/javascript" src="{{ url_for('static', filename = 'introduction.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
 <div class="morsemenu">
     <div class="morsemenu">
         <div class="char-borad-title">
@@ -53,7 +53,9 @@
         <div class="container">
             <div class="row justify-content-md-center onerowchar">
                 {% for word in words %}
-                <div class="col-md-auto wordbutton">{{word}}</div>
+                <div class="col-md-auto wordbutton">
+                    <a class="buttontext"href="{{ url_for('word_learning', word=word)}}">{{ word }}</a>
+                </div>
                 {% endfor %}
             </div>
         </div>

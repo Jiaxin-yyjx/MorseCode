@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<script type="text/javascript" src="{{ url_for('static', filename = 'introduction.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
 
 <div class="title">
     <div class="introduction">
@@ -11,7 +11,7 @@
         Click the card to see & listen! Each character has its own morse code, combine it into words.
     </div>
     <div class="container">
-        <div class="row  justify-content-center sos">
+        <div class="row  justify-content-center deletemargin">
             <div class="col">
                 <div class="morse-code-card" data-letter="S" data-audio-url="{{ url_for('static', filename='audios/Morse-S.mp3') }}">
                     S

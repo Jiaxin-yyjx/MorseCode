@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<div class="wordlearning">
+    <div class="words-menu-title">Learning Word Journey Start</div>
+    <div class="container">
+        <div class="row justify-content-center deletemargin">
+            <div class="col text-layout">
+                <div class="wordname">{{word}}</div>
+                <div class="wordvideo">video</div>
+            </div>
+            <div class="col addoneline">
+                {% for letter in word %}
+                <div class="row justify-content-center letter-image-sound">
+                    <div class="col text-layout">
+                        <div>{{letter}}</div>
+                        <div>
+                            <ion-icon name="logo-google-playstore"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="col text-layout">
+                        <div class="playcharsound" 
+                        data-letter="{{ letter }}" 
+                        data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ letter ~ '.mp3') }}">
+                            <ion-icon name="logo-google-playstore"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col text-layout">
+                <div class="wordname">{{word}} sound</div>
+                <div class="wordvideo">video</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

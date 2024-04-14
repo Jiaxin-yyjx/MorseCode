@@ -25,5 +25,8 @@ def menuchar():
     words = ["SOS","HELLO","THANKS","LOVE","QRV"]
     return render_template('menuchar.html', letters_row1=letters_row1, letters_row2=letters_row2, letters_row3=letters_row3, words=words)
 
+@app.route('/wordlearning/<word>')
+def word_learning(word):
+    return render_template('wordlearning.html', word=word)
 if __name__ == "__main__":
     app.run(debug=True)
