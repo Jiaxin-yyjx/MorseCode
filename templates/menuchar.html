@@ -52,9 +52,9 @@
         </div>
         <div class="container">
             <div class="row justify-content-md-center onerowchar">
-                {% for word in words %}
+                {% for index, word in words.items() %}
                 <div class="col-md-auto wordbutton">
-                    <a class="buttontext"href="{{ url_for('word_learning', word=word)}}">{{ word }}</a>
+                    <a class="buttontext"href="{{ url_for('word_learning',index=index)}}">{{ word }}</a>
                 </div>
                 {% endfor %}
             </div>
