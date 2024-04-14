@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
+<div class="morsemenu">
+    <div class="morsemenu">
+        <div class="char-borad-title">
+            CHOOSE CHARACTER to LISTEM
+        </div>
+        <a class="momory-tree-link">
+            click here to see how to memorize it
+        </a>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center onerowchar">
+            {% for letter in letters_row1 %}
+                <div class="col-1">
+                    <div class="morsemenu-char-card" 
+                        data-letter="{{ letter }}" 
+                        data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ letter ~ '.mp3') }}">
+                        {{ letter }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row justify-content-center onerowchar">
+            {% for letter in letters_row2 %}
+                <div class="col-1">
+                    <div class="morsemenu-char-card" 
+                        data-letter="{{ letter }}" 
+                        data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ letter ~ '.mp3') }}">
+                        {{ letter }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row justify-content-center onerowchar">
+            {% for letter in letters_row1 %}
+                <div class="col-1">
+                    <div class="morsemenu-char-card" 
+                        data-letter="{{ letter }}" 
+                        data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ letter ~ '.mp3') }}">
+                        {{ letter }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="words-to-learn">
+        <div class="words-menu-title">
+            CHOOSE ONE WORD to START LEARNING
+        </div>
+        <div class="container">
+            <div class="row justify-content-md-center onerowchar">
+                {% for word in words %}
+                <div class="col-md-auto wordbutton">
+                    <a class="buttontext"href="{{ url_for('word_learning', word=word)}}">{{ word }}</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
