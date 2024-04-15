@@ -35,7 +35,7 @@
             {% endfor %}
         </div>
         <div class="row justify-content-center onerowchar">
-            {% for letter in letters_row1 %}
+            {% for letter in letters_row3 %}
                 <div class="col-1">
                     <div class="morsemenu-char-card" 
                         data-letter="{{ letter }}" 
@@ -52,12 +52,19 @@
         </div>
         <div class="container">
             <div class="row justify-content-md-center onerowchar">
-                {% for word in words %}
+                {% for index, word in words.items() %}
                 <div class="col-md-auto wordbutton">
-                    <a class="buttontext"href="{{ url_for('word_learning', word=word)}}">{{ word }}</a>
+                    <a class="buttontext"href="{{ url_for('word_learning',index=index)}}">{{ word }}</a>
                 </div>
                 {% endfor %}
             </div>
+        </div>
+    </div>
+    <div class="row justify-content-center deletemargin">
+        <div class="col-3">
+            <a href="{{ url_for('start') }}">
+            <button class="buttonlayout btn btn-outline-secondary">Back to List</button>
+            </a>
         </div>
     </div>
 </div>

@@ -3,7 +3,7 @@
 {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
 
-<div class="title">
+<div class="intropart">
     <div class="introduction">
         Introduction to Morse Code
     </div>
@@ -27,6 +27,11 @@
                     S
                 </div>
             </div>
+        </div>
+        <div class="row justify-content-center deletemargin text-layout">
+            <a href="{{ url_for('start') }}">
+                <button class="spbuttonlayout btn btn-outline-secondary">Continue</button>
+            </a>
         </div>
     </div>
 </div>

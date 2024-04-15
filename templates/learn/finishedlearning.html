@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="finished">
+    <div class="words-menu-title">You Finished Learning Part!</div>
+    <div class="container">
+        <div class="row justify-content-center deletemargin">
+            <div class="col text-layout">
+                <a href="{{ url_for('start') }}">
+                <button class="buttonlayout btn btn-outline-secondary">LEARNING AGAIN</button>
+                </a>
+            </div>
+            <div class="col text-layout">
+                <a href="{{ url_for('start') }}">
+                <button class="buttonlayout btn btn-outline-secondary">TEST MYSELF</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
