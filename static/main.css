@@ -92,6 +92,9 @@
     text-align: center;
 
 }
+.videolayout {
+    width: 40rem;
+}
 /* menu char words*/
 .morsemenu {
     display: flex;
