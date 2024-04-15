@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'Quiz/result.js') }}"></script>
+
+<script>
+	let quiz_dashboard= {{quiz_dashboard| tojson}};
+	let quiz_score = {{quiz_score | tojson}};	
+</script>
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="subtitle_frame col-md-auto">
+			<h2>CONGRATULATIONS! YOU MADE {{quiz_score}}/10 SUCCESSFULLY!</h2>
+		</div>
+	</div>
+	<div class="row">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Question</th>
+					<th scope="col">Result</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col">
+		<a href="/">
+			<button type="button" class=" btn btn-secondary btn-lg">LEARNING AGAIN</button>
+		</a>
+	</div>
+	<div class="col">
+		<a href="/quiz_landing">
+			<button type="button" class="btn btn-secondary btn-lg">RETAKE</button>
+		</a>
+	</div>
+	<div class="col">
+		<a href="/">
+			<button type="button" class="btn btn-secondary btn-lg">END SESSION</button>
+		</a>
+	</div>
+</div>
+{% endblock %}

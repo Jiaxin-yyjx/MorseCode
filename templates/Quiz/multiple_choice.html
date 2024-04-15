@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'Quiz/multiple_choice.js') }}"></script>
+
+<script>
+	let choices = {{choices| tojson}};
+	let question = {{question | tojson}};	
+	let question_index = {{question_index | tojson}};	
+</script>
+
+<div class="container">
+	<div class="multiple_choice_question">
+			<h2>{{question}}</h2>
+	</div>
+		<div id="multiple_choice_answers" class="multiple_choice_answers">
+	</div>
+	
+	<div id="previous_button"></div>
+	<div id="next_button"></div>
+
+</div>
+{% endblock %}
