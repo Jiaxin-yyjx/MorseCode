@@ -28,6 +28,12 @@
                 </div>
             </div>
         </div>
+        <div  class="row justify-content-center deletemargin">
+             <video class="videolayout" controls>
+            <source src="{{ url_for('static', filename = 'videos/SOS.mp4')}}" type="video/mp4">
+        </video>
+        </div>
+       
         <div class="row justify-content-center deletemargin text-layout">
             <a href="{{ url_for('start') }}">
                 <button class="spbuttonlayout btn btn-outline-secondary">Continue</button>
