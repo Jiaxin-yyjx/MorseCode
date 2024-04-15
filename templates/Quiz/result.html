@@ -4,8 +4,8 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'Quiz/result.js') }}"></script>
 
 <script>
-	let quiz_dashboard= {{quiz_dashboard| tojson}};
-	let quiz_score = {{quiz_score | tojson}};	
+	let quiz_dashboard = {{ quiz_dashboard| tojson}};
+	let quiz_score = {{ quiz_score | tojson}};	
 </script>
 
 <div class="container">
@@ -31,7 +31,7 @@
 
 <div class="row">
 	<div class="col">
-		<a href="/">
+		<a href="/wordlearning/0">
 			<button type="button" class=" btn btn-secondary btn-lg">LEARNING AGAIN</button>
 		</a>
 	</div>
