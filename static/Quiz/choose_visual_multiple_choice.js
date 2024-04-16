@@ -1,16 +1,17 @@
 $(document).ready(function () {
 	let question_index = quiz_question['question_index']
+	let question = quiz_question['question']
 	let choices = quiz_question['choices']
 	let mode = quiz_question['mode']
-	
+	const visual_image = document.getElementById('visual_image')
+	visual_image.setAttribute('src', '/static/visuals/Morse-'+question+'.png');
+
 	const answers_container = document.getElementById('multiple_choice_answers');
 	const previous_button_div = document.getElementById('previous_button');
 	constructure_multiple_choice_answers(question_index, answers_container, choices, mode);
 	if (mode == "REVIEW"){
 		constructure_back_to_results_buttons(previous_button_div);
 	}
-	// const next_button_div = document.getElementById('next_button');
-	// constructure_previous_next_buttons(previous_button_div, next_button_div);
 });
 
 function constructure_back_to_results_buttons(next_button_div){
@@ -22,7 +23,6 @@ function constructure_back_to_results_buttons(next_button_div){
 	})
 }
 
-// TODO: Choice now only support string, could further support video
 function constructure_multiple_choice_answers(question_index, answers_container, choices, mode){
 	choices.forEach((choice, index)=>{
 		let button = document.createElement('button');

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<script type="text/javascript" src="{{ url_for('static', filename = 'Quiz/multiple_choice.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'Quiz/choose_sound_multiple_choice.js') }}"></script>
 
 <script>
 	let quiz_question = {{quiz_question | tojson}};
@@ -14,7 +14,9 @@
 			<h2>{{quiz_question.question}}</h2>
 		</div>
 		<div class="col addoneline">
-			<div id="multiple_choice_answers" class="row text-layout">
+			<div class="col text-layout">
+				<div id="multiple_choice_answers">
+				</div>
 			</div>
 		</div>
 	</div>

@@ -4,24 +4,35 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'Quiz/spelling.js') }}"></script>
 
 <script>
-	let question = {{question | tojson}};	
-	let question_index = {{question_index | tojson}};	
+	let quiz_question = {{quiz_question | tojson}};
 </script>
 
 <div class="container">
-	<div class="multiple_choice_question">
-			<h2>{{question}}</h2>
+	<div class="words-menu-title">{{quiz_question.question_index}}/10</div>
+	<div class="row justify-content-center deletemargin">
+		<div class="col text-layout">
+			<h2>{{quiz_question.question}}</h2>
+		</div>
+		<div class="col addoneline">
+			<div class="col justify-content-center">
+				<button id="dotButton" class="btn btn-outline-secondary" type="button">Dot</button>
+				<button id="dashButton" class="btn btn-outline-secondary" type="button">Dash</button>
+			</div>
+			<div></div>
+			<div id="Spelling result box" class="input-group mb-3">
+				<span class="input-group-text" id="inputGroup-sizing-default">Ans:</span>
+				<input id="ansInput" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+				<span class="input-group-text clear-btn" id="clearBtn">✖</span>
+			</div>
+		</div>
 	</div>
-		<div>
-			<button id="dotButton" class="btn btn-outline-secondary" type="button">Dot</button>
-			<button id="dashButton" class="btn btn-outline-secondary" type="button">Dash</button>
+	<div class="row justify-content-between deletemargin">
+		<div class="col-3">
+			<div id="previous_button"></div>
 		</div>
-		<div id="Spelling result box" class="input-group mb-3">
-			<span class="input-group-text" id="inputGroup-sizing-default">Ans:</span>
-			<input id="ansInput" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-			<span class="input-group-text clear-btn" id="clearBtn">✖</span>
+		<div class="col-3">
+			<div id="next_button"></div>
 		</div>
-		<div id="previous_button"></div>
-		<div id="next_button"></div>
+	</div>
 </div>
 {% endblock %}

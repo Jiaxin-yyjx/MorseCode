@@ -14,6 +14,7 @@ words = {
     4: "QRV"
 }
 
+QUIZ_QUESTION_TYPE =["MULTIPLE_CHOICE", "SPELLING", "SOUND_CHOICE", "VISUAL_CHOICE"]
 morse_code_dict = {
     'A': '.-',    'B': '-...',  'C': '-.-.',  'D': '-..',   'E': '.', 
     'F': '..-.',  'G': '--.',   'H': '....',  'I': '..',    'J': '.---', 
@@ -72,6 +73,7 @@ def start():
 @app.route('/dashtree')
 def dashtree():
     return render_template('learn/dashtree.html')
+
 # Quiz related API
 @app.route('/quiz_landing', methods=['GET'])
 def quiz_landing():
@@ -93,39 +95,62 @@ def get_a_new_question():
     if len(quiz_dashboard) == 10:
         return jsonify(number_of_question = len(quiz_dashboard))
     # Randomly generate next question
-    random_number = random.randint(1, 2)
-    print(f'Pick question type {random_number}')
-    if random_number == 1:
+    random_question_type = random.choice(QUIZ_QUESTION_TYPE)
+    print(f'Pick question type {random_question_type}')
+    if random_question_type == "MULTIPLE_CHOICE":
         return get_one_multiple_choice_question()
-    if random_number == 2:
+    if random_question_type == "SPELLING":
         return get_one_spelling_question()
-    if random_number == 3:
-        return 0
-    if random_number == 4:
-        return -1
+    if random_question_type == "SOUND_CHOICE":
+        return get_one_choose_sound_multiple_choice_question()
+    if random_question_type == "VISUAL_CHOICE":
+        return get_one_choose_visual_multiple_choice_question()
     
 # TODO: Not support yet
 @app.route('/get_previou_question', methods=['GET'])
 def get_previou_question():
     return 0 
 
+@app.route('/review_question/<int:question_index>', methods=['GET'])
+def get_question_index(question_index):
+    global quiz_dashboard, quiz_score
+    print(quiz_dashboard)
+    quiz_question = quiz_dashboard[question_index]
+    quiz_question['mode'] = "REVIEW"
+
+    if quiz_question['type'] == "MULTIPLE_CHOICE":
+        return render_template('Quiz/multiple_choice.html', quiz_question = quiz_question)
+    if quiz_question['type'] == "SPELLING":
+        return render_template('Quiz/spelling.html', quiz_question = quiz_question)
+    if quiz_question['type'] == "SOUND_CHOICE":
+        return render_template('Quiz/choose_sound_multiple_choice.html', quiz_question = quiz_question)
+    if quiz_question['type'] == "VISUAL_CHOICE":
+        return render_template('Quiz/choose_visual_multiple_choice.html', quiz_question = quiz_question)
+    
 @app.route('/quiz_one_multiple_choice_question', methods=['GET'])
 def get_one_multiple_choice_question():
     global quiz_dashboard
     quiz_question = {}
     question, correct_answer = random.choice(list(morse_code_dict.items()))
-    # TODO: Random the choice and not duplicated with correct_answer
-    choices = [correct_answer, morse_code_dict['B'],morse_code_dict['C'],morse_code_dict['D']]
+    
+    choices = [correct_answer]
+    while len(choices) != 4:
+        temp_question, temp_answer =random.choice(list(morse_code_dict.items()))
+        if not temp_answer in choices:
+            choices.append(temp_answer)
+    # random.shuffle(choices)
     question_index = len(quiz_dashboard)
 
     quiz_question['question_index'] = question_index
     quiz_question['question'] = question
     quiz_question['correct_answer'] = correct_answer
     quiz_question['choices'] = choices
+    quiz_question['type'] = "MULTIPLE_CHOICE"
+    quiz_question['mode'] = "QUIZ"
     quiz_dashboard.append(quiz_question)
-    print(quiz_dashboard)
     
-    return render_template('Quiz/multiple_choice.html', question = question, choices = choices, question_index=question_index)
+    # return render_template('Quiz/multiple_choice.html', quiz_question = quiz_question, question = question, choices = choices, question_index=question_index, mode = "QUIZ")
+    return render_template('Quiz/multiple_choice.html', quiz_question = quiz_question)
 
 @app.route('/quiz_one_spelling_question', methods=['GET'])
 def get_one_spelling_question():
@@ -137,9 +162,62 @@ def get_one_spelling_question():
     quiz_question['question_index'] = question_index
     quiz_question['question'] = question
     quiz_question['correct_answer'] = correct_answer
+    quiz_question['type'] = "SPELLING"
+    quiz_question['mode'] = "QUIZ"
     quiz_dashboard.append(quiz_question)
     
-    return render_template('Quiz/spelling.html', question = question, question_index=question_index)
+    return render_template('Quiz/spelling.html', quiz_question = quiz_question)
+
+@app.route('/quiz_one_choose_sound_multiple_choice_question', methods=['GET'])
+def get_one_choose_sound_multiple_choice_question():
+    global quiz_dashboard
+    quiz_question = {}
+    question, correct_answer = random.choice(list(morse_code_dict.items()))
+    
+    choices = [question]
+    while len(choices) != 4:
+        temp_question, temp_answer =random.choice(list(morse_code_dict.items()))
+        if not temp_question in choices:
+            choices.append(temp_question)
+    # random.shuffle(choices)
+    question_index = len(quiz_dashboard)
+
+    quiz_question['question_index'] = question_index
+    quiz_question['question'] = question
+    quiz_question['correct_answer'] = question
+    quiz_question['choices'] = choices
+    quiz_question['type'] = "SOUND_CHOICE"
+    quiz_question['mode'] = "QUIZ"
+    quiz_dashboard.append(quiz_question)
+    
+    return render_template('Quiz/choose_sound_multiple_choice.html', quiz_question = quiz_question)
+
+
+@app.route('/quiz_one_choose_visual_multiple_choice_question', methods=['GET'])
+def get_one_choose_visual_multiple_choice_question():
+    global quiz_dashboard
+    quiz_question = {}
+    question, correct_answer = random.choice(list(morse_code_dict.items()))
+    
+    choices = [question]
+    while len(choices) != 4:
+        temp_question, temp_answer =random.choice(list(morse_code_dict.items()))
+        if not temp_question in choices:
+            choices.append(temp_question)
+    # random.shuffle(choices)
+    question_index = len(quiz_dashboard)
+
+    quiz_question['question_index'] = question_index
+    quiz_question['question'] = question
+    quiz_question['correct_answer'] = question
+    quiz_question['choices'] = choices
+    quiz_question['type'] = "VISUAL_CHOICE"
+    quiz_question['mode'] = "QUIZ"
+    quiz_dashboard.append(quiz_question)
+    
+    # return render_template('Quiz/multiple_choice.html', quiz_question = quiz_question, question = question, choices = choices, question_index=question_index, mode = "QUIZ")
+    return render_template('Quiz/choose_visual_multiple_choice.html', quiz_question = quiz_question)
+
 
 def varify_multiple_choice_answer(question_index, answer_content):
     global quiz_score, quiz_dashboard
@@ -160,7 +238,6 @@ def submit_multiple_choice_answer():
 
     json_data = request.get_json()
     quiz_score = varify_multiple_choice_answer(json_data['question_index'],json_data['answer_content'])
-    # print(quiz_score)
 
     return jsonify(number_of_question=len(quiz_dashboard))
 
@@ -169,7 +246,14 @@ def submit_spelling_answer():
 
     json_data = request.get_json()
     quiz_score = varify_multiple_choice_answer(json_data['question_index'],json_data['answer_content'])
-    # print(quiz_score)
+
+    return jsonify(number_of_question=len(quiz_dashboard))
+
+@app.route('/submit_sound_multiple_choice_answer', methods=['POST'])
+def submit_sound_multiple_choice_answer():
+
+    json_data = request.get_json()
+    quiz_score = varify_multiple_choice_answer(json_data['question_index'], json_data['answer_content'])
 
     return jsonify(number_of_question=len(quiz_dashboard))
 
