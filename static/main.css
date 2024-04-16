@@ -172,9 +172,23 @@
     text-decoration: none;
 }
 /* word learning */
+.playcharsound {
+    align-items: center;
+}
+.letter {
+    font-size: 2rem;
+    font-weight: 600;
+}
+.videolayoutword {
+    width: 20rem;
+}
+.signforletter {
+    font-size: 3rem;
+}
 .text-layout {
     margin: auto;
     text-align: center;
+    align-items: center;
 }
 .wordname {
     color: #000;
@@ -220,5 +234,51 @@
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     border-radius: 3rem;
+}
+/* dashtree  */
+circle, line, path{
+    fill: none;
+    stroke: #000;
+    stroke-width: 2.5;
+}
+circle {
+    fill: transparent;
+    cursor: pointer;
+}
+text, line, path {
+    pointer-events: none;
+}
+circle{
+    stroke-width: 1.5;
+}
+text{
+    font-size: 28px;
+    font-family: "Bitstream Charter", Charter, serif;
+    text-anchor: middle;
+}
+.arrowhead{
+    fill: #000;
+    stroke-width: 3.2;
+}
+.big  { stroke-width: 3; font-size: 32px; }
+.dot  { stroke-dasharray: 2.5, 7.5; }
+.dash { stroke-dasharray: 7.5, 7.5; }
+.thin { stroke-width: 1; }
+.grey { stroke: #808080; }
+.tiny { font-size: 20px; }
+.dashtreesvg {
+    width: 1000px;
+    height: auto
+}
+.morse_code_tree {
+    color: #000;
+    text-align: center;
+    font-family: "Josefin Sans";
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 40px;
+    margin-top: 40px
 }
 /* Quiz Part */

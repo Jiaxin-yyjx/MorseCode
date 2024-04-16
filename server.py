@@ -59,7 +59,7 @@ def menuchar():
 
 @app.route('/wordlearning/<int:index>')
 def word_learning(index):
-    return render_template('Learn/wordlearning.html', index=index, words=words, word=words[index])
+    return render_template('Learn/wordlearning.html', index=index, words=words, word=words[index], morse_code_dict=morse_code_dict)
 
 @app.route('/finishedlearning')
 def finished_learning():
@@ -69,6 +69,9 @@ def finished_learning():
 def start():
     return render_template('Learn/start.html')
 
+@app.route('/dashtree')
+def dashtree():
+    return render_template('learn/dashtree.html')
 # Quiz related API
 @app.route('/quiz_landing', methods=['GET'])
 def quiz_landing():
