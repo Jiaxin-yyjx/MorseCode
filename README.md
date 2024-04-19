@@ -1,5 +1,6 @@
 # MorseCodeMastery
 Welcome to Morse Code Mastery, an interactive platform designed to help you learn and practice Morse code through common phrases and an intuitive memory method. Our project aims to make Morse code accessible and engaging for everyone, from beginners to those looking to refresh their skills.
+
 ![Homepage](/static/images/Homepage.png "MorseMatery HomePage")
 
 ## Features:
