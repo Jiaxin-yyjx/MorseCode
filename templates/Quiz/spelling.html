@@ -4,10 +4,11 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'Quiz/spelling.js') }}"></script>
 
 <script>
-	let quiz_question = {{quiz_question | tojson}};
+	let quiz_question = {{ quiz_question | tojson}};
 </script>
 
 <div class="container">
+	<div>Create the Morse Code: Type the Correct Visual Morse Code Using Dot and Dash Buttons</div>
 	<div class="words-menu-title">{{quiz_question.question_index}}/10</div>
 	<div class="row justify-content-center deletemargin">
 		<div class="col text-layout">
@@ -21,7 +22,8 @@
 			<div></div>
 			<div id="Spelling result box" class="input-group mb-3">
 				<span class="input-group-text" id="inputGroup-sizing-default">Ans:</span>
-				<input id="ansInput" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+				<input id="ansInput" type="text" class="form-control" aria-label="Sizing example input"
+					aria-describedby="inputGroup-sizing-default">
 				<span class="input-group-text clear-btn" id="clearBtn">✖</span>
 			</div>
 		</div>

@@ -4,10 +4,11 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'Quiz/multiple_choice.js') }}"></script>
 
 <script>
-	let quiz_question = {{quiz_question | tojson}};
+	let quiz_question = {{ quiz_question | tojson}};
 </script>
 
 <div class="container">
+	<div>Identify the Morse Code: Choose the Correct Visual from Given Words or Characters</div>
 	<div class="words-menu-title">{{quiz_question.question_index}}/10</div>
 	<div class="row justify-content-center deletemargin">
 		<div class="col text-layout">

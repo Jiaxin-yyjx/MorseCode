@@ -1,13 +1,15 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<script type="text/javascript" src="{{ url_for('static', filename = 'Quiz/choose_visual_multiple_choice.js') }}"></script>
+<script type="text/javascript"
+	src="{{ url_for('static', filename = 'Quiz/choose_visual_multiple_choice.js') }}"></script>
 
 <script>
-	let quiz_question = {{quiz_question | tojson}};
+	let quiz_question = {{ quiz_question | tojson}};
 </script>
 
 <div class="container">
+	<div>Decode the Morse Code: Choose the Correct Words or Characters from a Visual Display</div>
 	<div class="words-menu-title">{{quiz_question.question_index}}/10</div>
 	<div class="row justify-content-center deletemargin">
 		<div class="col text-layout">
