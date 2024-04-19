@@ -3,7 +3,7 @@ Welcome to Morse Code Mastery, an interactive platform designed to help you lear
 
 ![Homepage](/static/images/Homepage.png "MorseMatery HomePage")
 
-## Features:
+## Features
 1. **Interactive Learning Modules**: Learn Morse code with step-by-step tutorials that introduce you to each character and common phrases.
 2. **Practice Tests**: Test your knowledge with practice modules that provide immediate feedback.
 3. **Memory Techniques**: Employ easy and effective memory aids to help retain what you learn.
@@ -46,7 +46,7 @@ pip install -r requirements.txt
 python server.py
 ```
 
-### Git Rule:
+### Git Rule
 1. Every time revise the code should do the following
 2. in terminal:
 ```bash
