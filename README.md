@@ -8,6 +8,16 @@ Welcome to Morse Code Mastery, an interactive platform designed to help you lear
 2. **Practice Tests**: Test your knowledge with practice modules that provide immediate feedback.
 3. **Memory Techniques**: Employ easy and effective memory aids to help retain what you learn.
 
+## Built With
+- Frontend
+  - Javascript
+  - JQuery
+  - HTML
+  - CSS
+- Backend
+  - Python
+  - Flask
+
 ## Getting Started
 To get started with Morse Code Mastery, follow these steps:
 1. Clone the Repository
