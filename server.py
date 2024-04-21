@@ -118,7 +118,7 @@ def menuchar():
 def word_learning(index):
     global learning_data, current_learn
     current_learn  = index
-    return render_template('Learn/wordlearning.html', index=current_learn, word=learning_data[current_learn], morse_code_dict=morse_code_dict)
+    return render_template('Learn/wordlearning.html', index=current_learn, word=learning_data[current_learn], morse_code_dict=morse_code_dict_Char)
 
 @app.route('/finishedlearning')
 def finished_learning():
