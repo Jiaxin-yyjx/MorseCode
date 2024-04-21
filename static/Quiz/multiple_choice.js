@@ -8,10 +8,40 @@ $(document).ready(function () {
 	constructure_multiple_choice_answers(question_index, answers_container, choices, mode);
 	if (mode == "REVIEW"){
 		constructure_back_to_results_buttons(previous_button_div);
+		show_choies_correct_answer(choices);
 	}
-	// const next_button_div = document.getElementById('next_button');
-	// constructure_previous_next_buttons(previous_button_div, next_button_div);
 });
+
+// When in the review mode, we will git out each choice corresponding answer
+function show_choies_correct_answer(choices){
+	const choices_answer_container = document.getElementById('choices_answer_container');
+	// Set the format first and let it show.
+	choices_answer_container.setAttribute('class', 'col addoneline');
+
+	// Show each choices their correct answer
+	const choices_answer = document.createElement('div');
+	choices_answer.setAttribute('id', "choices_answer");
+	choices_answer.setAttribute('class', "row text-layout");
+	
+	// Similiar when creating the original choice but seperate for easy format purpose
+	choices.forEach((question_answer_pair, index)=>{
+		choice_correct_answer = question_answer_pair[0];
+		choice = question_answer_pair[1];
+		let button = document.createElement('button');
+		button.className = 'btn btn-outline-secondary';
+		if (quiz_question['user_answer'] == choice){
+			button.className = 'btn btn-outline-danger';
+		}
+		if (quiz_question['correct_answer'] == choice){
+			button.className = 'btn btn-outline-success';
+		}
+		button.textContent = choice_correct_answer;
+		button.setAttribute('choice_answer_id', index);  // Custom attribute to identify the button
+		choices_answer.appendChild(button);
+	});
+
+	choices_answer_container.appendChild(choices_answer);
+}
 
 function constructure_back_to_results_buttons(next_button_div){
 	let back_to_results = document.createElement('button');
@@ -22,9 +52,10 @@ function constructure_back_to_results_buttons(next_button_div){
 	})
 }
 
-// TODO: Choice now only support string, could further support video
+// Choice now only support string, could further support video
 function constructure_multiple_choice_answers(question_index, answers_container, choices, mode){
-	choices.forEach((choice, index)=>{
+	choices.forEach((question_answer_pair, index)=>{
+		choice = question_answer_pair[1];
 		let button = document.createElement('button');
 		if (mode =="QUIZ"){
 			button.className = 'btn btn-secondary';

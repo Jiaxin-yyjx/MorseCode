@@ -3,16 +3,63 @@ $(document).ready(function () {
 	let question = quiz_question['question']
 	let choices = quiz_question['choices']
 	let mode = quiz_question['mode']
-	const visual_image = document.getElementById('visual_image')
-	visual_image.setAttribute('src', '/static/visuals/Morse-'+question+'.png');
+	// const visual_image = document.getElementById('visual_image')
+	// visual_image.setAttribute('src', '/static/visuals/Morse-'+question+'.png');
+
+	const question_image = document.getElementById('question_image');
+	Array.from(question).forEach(function (letter){
+		// let visual_image = document.createElement('img')
+		// visual_image.setAttribute('src', '/static/visuals/Morse-'+letter+'.png');
+		// question_image.appendChild(visual_image);
+		$('#question_image').append(
+			$('<img>', {
+					src: '/static/visuals/Morse-' + letter + '.png',
+					width: '40',
+					height: '30'
+			})
+		);
+	})
 
 	const answers_container = document.getElementById('multiple_choice_answers');
 	const previous_button_div = document.getElementById('previous_button');
 	constructure_multiple_choice_answers(question_index, answers_container, choices, mode);
 	if (mode == "REVIEW"){
 		constructure_back_to_results_buttons(previous_button_div);
+		show_choies_correct_answer(choices);
 	}
 });
+
+// When in the review mode, we will git out each choice corresponding answer
+function show_choies_correct_answer(choices){
+	const choices_answer_container = document.getElementById('choices_answer_container');
+	// Set the format first and let it show.
+	choices_answer_container.setAttribute('class', 'col addoneline');
+
+	// Show each choices their correct answer
+	const choices_answer = document.createElement('div');
+	choices_answer.setAttribute('id', "choices_answer");
+	choices_answer.setAttribute('class', "row text-layout");
+	
+	// Similiar when creating the original choice but seperate for easy format purpose
+	choices.forEach((question_answer_pair, index)=>{
+		choice_letter = question_answer_pair[0];
+		choice_morse_code = question_answer_pair[1];
+		let button = document.createElement('button');
+		button.className = 'btn btn-outline-secondary';
+		if (quiz_question['user_answer'] == choice_letter){
+			button.className = 'btn btn-outline-danger';
+		}
+		if (quiz_question['correct_answer'] == choice_letter){
+			button.className = 'btn btn-outline-success';
+		}
+		button.textContent = choice_morse_code;
+		button.setAttribute('choice_answer_id', index);  // Custom attribute to identify the button
+		choices_answer.appendChild(button);
+	});
+
+	choices_answer_container.appendChild(choices_answer);
+}
+
 
 function constructure_back_to_results_buttons(next_button_div){
 	let back_to_results = document.createElement('button');
@@ -24,20 +71,23 @@ function constructure_back_to_results_buttons(next_button_div){
 }
 
 function constructure_multiple_choice_answers(question_index, answers_container, choices, mode){
-	choices.forEach((choice, index)=>{
+	choices.forEach((question_answer_pair, index)=>{
+		choice_letter = question_answer_pair[0];
+		choice_morse_code = question_answer_pair[1];
 		let button = document.createElement('button');
 		if (mode =="QUIZ"){
 			button.className = 'btn btn-secondary';
 		}else if (mode == "REVIEW"){
 			button.className = 'btn btn-secondary';
-			if (quiz_question['user_answer'] == choice){
+
+			if (quiz_question['user_answer'] == choice_letter){
 				button.className = 'btn btn-danger';
-			} 
-			if (quiz_question['correct_answer'] == choice){
+			}
+			if (quiz_question['correct_answer'] == choice_letter){
 				button.className = 'btn btn-success';
 			}
 		}
-		button.textContent = choice;
+		button.textContent = choice_letter;
 		button.setAttribute('answer_id', index);  // Custom attribute to identify the button
 		answers_container.appendChild(button);
 	})
@@ -71,6 +121,7 @@ function constructure_multiple_choice_answers(question_index, answers_container,
 		});
 	}
 }
+
 
 function constructure_previous_next_buttons(previous_button_div, next_button_div){
 	let next_button = document.createElement('button');

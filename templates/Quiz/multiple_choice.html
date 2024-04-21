@@ -4,7 +4,7 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'Quiz/multiple_choice.js') }}"></script>
 
 <script>
-	let quiz_question = {{ quiz_question | tojson}};
+	let quiz_question = {{quiz_question | tojson}};
 </script>
 
 <div class="container">
@@ -17,6 +17,8 @@
 		<div class="col addoneline">
 			<div id="multiple_choice_answers" class="row text-layout">
 			</div>
+		</div>
+		<div id="choices_answer_container">
 		</div>
 	</div>
 	<div class="row justify-content-between deletemargin">

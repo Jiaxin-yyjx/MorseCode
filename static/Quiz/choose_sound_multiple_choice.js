@@ -8,8 +8,40 @@ $(document).ready(function () {
 	constructure_multiple_choice_answers(question_index, answers_container, choices, mode);
 	if (mode == "REVIEW"){
 		constructure_back_to_results_buttons(previous_button_div);
+		show_choies_correct_answer(choices);
 	}
 });
+
+// When in the review mode, we will git out each choice corresponding answer
+function show_choies_correct_answer(choices){
+	const choices_answer_container = document.getElementById('choices_answer_container');
+	// Set the format first and let it show.
+	choices_answer_container.setAttribute('class', 'col addoneline');
+
+	// Show each choices their correct answer
+	const choices_answer = document.createElement('div');
+	choices_answer.setAttribute('id', "choices_answer");
+	choices_answer.setAttribute('class', "row text-layout");
+	
+	// Similiar when creating the original choice but seperate for easy format purpose
+	choices.forEach((question_answer_pair, index)=>{
+		choice_correct_answer = question_answer_pair[0];
+		choice = question_answer_pair[1];
+		let button = document.createElement('button');
+		button.className = 'btn btn-outline-secondary';
+		if (quiz_question['user_answer'] == choice){
+			button.className = 'btn btn-outline-danger';
+		}
+		if (quiz_question['correct_answer'] == choice){
+			button.className = 'btn btn-outline-success';
+		}
+		button.textContent = choice_correct_answer;
+		button.setAttribute('choice_answer_id', index);  // Custom attribute to identify the button
+		choices_answer.appendChild(button);
+	});
+
+	choices_answer_container.appendChild(choices_answer);
+}
 
 function constructure_back_to_results_buttons(next_button_div){
 	let back_to_results = document.createElement('button');
@@ -20,39 +52,78 @@ function constructure_back_to_results_buttons(next_button_div){
 	})
 }
 
-// TODO: Choice now only support string, could further support video
+function constructure_sound_button(choice_letter, choice_morse_code, answers_container){
+	let sound = document.createElement('div');
+	sound.setAttribute('id', 'audioContainer' + choice_letter);
+	Array.from(choice_letter).forEach((letter, index)=>{
+		let audio = document.createElement('audio');
+		audio.setAttribute('id', index);
+		let source = document.createElement('source');
+		source.setAttribute('src', '/static/audios/Morse-'+letter+'.mp3');
+		audio.append(source);
+		sound.append(audio);
+	})
+		
+	// Add this text so that user could click on
+	let p = $('<p>sound</p>');
+	$(sound).append(p);
+
+	// sound.setAttribute('data-audio-url', '/static/audios/Morse-'+choice_letter+'.mp3');
+	// sound.setAttribute('sound_letter',choice_morse_code);
+	// const audioUrl = sound.getAttribute('data-audio-url');
+	// const audio = new Audio('/static/audios/Morse-'+choice_letter+'.mp3');
+	sound.addEventListener('click',function(){
+		// audio.play().catch(e => console.error('Error playing audio:', e));
+		var audios = document.querySelectorAll('#audioContainer'+ choice_letter + ' audio');
+		// let currentAudioIndex = 0;
+		function playAudio(index) {
+			if (index < audios.length) {
+				audios[index].play();
+				audios[index].addEventListener('ended', function() {
+						playAudio(index + 1);  // Play the next audio when current ends
+				});
+			}
+		}
+		playAudio(0);
+	})
+	answers_container.append(sound);
+}
+
 function constructure_multiple_choice_answers(question_index, answers_container, choices, mode){
-	choices.forEach((choice, index)=>{
+	choices.forEach((question_answer_pair, index)=>{
+		choice_letter = question_answer_pair[0];
+		choice_morse_code = question_answer_pair[1];
 		let button = document.createElement('button');
 		if (mode =="QUIZ"){
 			button.className = 'btn btn-secondary';
 		}else if (mode == "REVIEW"){
 			button.className = 'btn btn-secondary';
-			if (quiz_question['user_answer'] == choice){
+			if (quiz_question['user_answer'] == choice_morse_code){
 				button.className = 'btn btn-danger';
 			} 
-			if (quiz_question['correct_answer'] == choice){
+			if (quiz_question['correct_answer'] == choice_morse_code){
 				button.className = 'btn btn-success';
 			}
 		}
 		button.textContent = index;
-		button.setAttribute('answer_id', choice);  // Custom attribute to identify the button
+		button.setAttribute('answer_id', choice_morse_code);  // Custom attribute to identify the button
 		answers_container.appendChild(button);
+
+		// let sound = document.createElement('div');
+		// // Add this text so that user could click on
+		// let p = $('<p>sound</p>');
+		// $(sound).append(p);
 		
-		let sound = document.createElement('div');
-		sound.setAttribute('data-audio-url', '/static/audios/Morse-'+choice+'.mp3');
-		sound.setAttribute('sound_letter', choice);
-		// let icon = $('<ion-icon name="logo-google-playstore"></ion-icon>');
-		// $(sound).append(icon);
-		let p = $('<p>sound</p>');
-		$(sound).append(p);
-		const audioUrl = sound.getAttribute('data-audio-url');
-		const audio = new Audio(audioUrl);
-		sound.addEventListener('click',function(){
-			console.log(123)
-			audio.play().catch(e => console.error('Error playing audio:', e));
-		})
-		answers_container.append(sound);
+		// // let audio = document.createElement('audio');
+		// sound.setAttribute('data-audio-url', '/static/audios/Morse-'+choice_letter+'.mp3');
+		// sound.setAttribute('sound_letter',choice_morse_code);
+		// const audioUrl = sound.getAttribute('data-audio-url');
+		// const audio = new Audio('/static/audios/Morse-'+choice_letter+'.mp3');
+		// sound.addEventListener('click',function(){
+		// 	audio.play().catch(e => console.error('Error playing audio:', e));
+		// })
+		// answers_container.append(sound);
+		constructure_sound_button(choice_letter, choice_morse_code, answers_container);
 	})
 	if (mode == "QUIZ"){
 		answers_container.addEventListener('click', function(event) {

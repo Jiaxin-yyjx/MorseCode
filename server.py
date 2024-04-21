@@ -8,26 +8,40 @@ app = Flask(__name__)
 # Data
 words = {
     0: "SOS",
-    1: "YES",
-    2: "NO",
-    3: "OK",
-    4: "STOP"
+    1: "HELLO",
+    2: "THANKS",
+    3: "LOVE",
+    4: "QRV"
 }
 
 QUIZ_QUESTION_TYPE =["MULTIPLE_CHOICE", "SPELLING", "SOUND_CHOICE", "VISUAL_CHOICE"]
-morse_code_dict = {
+morse_code_dict_Char = {
     'A': '.-',    'B': '-...',  'C': '-.-.',  'D': '-..',   'E': '.', 
     'F': '..-.',  'G': '--.',   'H': '....',  'I': '..',    'J': '.---', 
     'K': '-.-',   'L': '.-..',  'M': '--',    'N': '-.',    'O': '---', 
     'P': '.--.',  'Q': '--.-',  'R': '.-.',   'S': '...',   'T': '-', 
     'U': '..-',   'V': '...-',  'W': '.--',   'X': '-..-',  'Y': '-.--', 
-    'Z': '--..',
-    # 'a': '.-',    'b': '-...',  'c': '-.-.',  'd': '-..',   'e': '.', 
-    # 'f': '..-.',  'g': '--.',   'h': '....',  'i': '..',    'j': '.---', 
-    # 'k': '-.-',   'l': '.-..',  'm': '--',    'n': '-.',    'o': '---', 
-    # 'p': '.--.',  'q': '--.-',  'r': '.-.',   's': '...',   't': '-', 
-    # 'u': '..-',   'v': '...-',  'w': '.--',   'x': '-..-',  'y': '-.--', 
-    # 'z': '--..'
+    'Z': '--..'
+}
+
+morse_code_dict = {
+    'SOS': '...---...',
+    'HELLO': '......-...-..---',
+    'THANKS': '-.....- -.-.-...',
+    'LOVE': '.-..---...-.',
+    'QRV': '--.-.-....-',
+    'S': '...',
+    'V': '...-',
+    'R': '.-.',
+    'N': '-.',
+    'Q': '--.-',
+    'H': '....',
+    'K': '-.-',
+    'L': '.-..',
+    'E': '.',
+    'A': '.-',
+    'O': '---',
+    'T': '-'
 }
 
 # Functions
@@ -60,7 +74,7 @@ def menuchar():
 
 @app.route('/wordlearning/<int:index>')
 def word_learning(index):
-    return render_template('Learn/wordlearning.html', index=index, words=words, word=words[index], morse_code_dict=morse_code_dict)
+    return render_template('Learn/wordlearning.html', index=index, words=words, word=words[index])
 
 @app.route('/finishedlearning')
 def finished_learning():
@@ -133,12 +147,12 @@ def get_one_multiple_choice_question():
     quiz_question = {}
     question, correct_answer = random.choice(list(morse_code_dict.items()))
     
-    choices = [correct_answer]
+    choices = [(question, correct_answer)]
     while len(choices) != 4:
         temp_question, temp_answer =random.choice(list(morse_code_dict.items()))
-        if not temp_answer in choices:
-            choices.append(temp_answer)
-    # random.shuffle(choices)
+        if not (temp_question, temp_answer) in choices:
+            choices.append((temp_question, temp_answer))
+    random.shuffle(choices)
     question_index = len(quiz_dashboard)
 
     quiz_question['question_index'] = question_index
@@ -174,17 +188,17 @@ def get_one_choose_sound_multiple_choice_question():
     quiz_question = {}
     question, correct_answer = random.choice(list(morse_code_dict.items()))
     
-    choices = [question]
+    choices = [(question, correct_answer)]
     while len(choices) != 4:
         temp_question, temp_answer =random.choice(list(morse_code_dict.items()))
-        if not temp_question in choices:
-            choices.append(temp_question)
-    # random.shuffle(choices)
+        if not (temp_question, temp_answer) in choices:
+            choices.append((temp_question, temp_answer))
+    random.shuffle(choices)
     question_index = len(quiz_dashboard)
 
     quiz_question['question_index'] = question_index
     quiz_question['question'] = question
-    quiz_question['correct_answer'] = question
+    quiz_question['correct_answer'] = correct_answer
     quiz_question['choices'] = choices
     quiz_question['type'] = "SOUND_CHOICE"
     quiz_question['mode'] = "QUIZ"
@@ -199,12 +213,12 @@ def get_one_choose_visual_multiple_choice_question():
     quiz_question = {}
     question, correct_answer = random.choice(list(morse_code_dict.items()))
     
-    choices = [question]
+    choices = [(question, correct_answer)]
     while len(choices) != 4:
         temp_question, temp_answer =random.choice(list(morse_code_dict.items()))
-        if not temp_question in choices:
-            choices.append(temp_question)
-    # random.shuffle(choices)
+        if not (temp_question, temp_answer) in choices:
+            choices.append((temp_question, temp_answer))
+    random.shuffle(choices)
     question_index = len(quiz_dashboard)
 
     quiz_question['question_index'] = question_index
