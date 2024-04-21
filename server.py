@@ -8,10 +8,10 @@ app = Flask(__name__)
 # Data
 words = {
     0: "SOS",
-    1: "HELLO",
-    2: "THANKS",
-    3: "LOVE",
-    4: "QRV"
+    1: "YES",
+    2: "NO",
+    3: "OK",
+    4: "STOP"
 }
 
 QUIZ_QUESTION_TYPE =["MULTIPLE_CHOICE", "SPELLING", "SOUND_CHOICE", "VISUAL_CHOICE"]
@@ -74,7 +74,7 @@ def menuchar():
 
 @app.route('/wordlearning/<int:index>')
 def word_learning(index):
-    return render_template('Learn/wordlearning.html', index=index, words=words, word=words[index])
+    return render_template('Learn/wordlearning.html', index=index, words=words, word=words[index], morse_code_dict=morse_code_dict_Char)
 
 @app.route('/finishedlearning')
 def finished_learning():
