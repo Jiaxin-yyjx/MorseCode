@@ -1,11 +1,13 @@
 $(document).ready(function () {
 	let mode = quiz_question['mode']
 	let question_index = quiz_question['question_index']
-	
+	let correct_answer = quiz_question['correct_answer']
 	const clearBtn = document.getElementById('clearBtn');
 	const ansInput = document.getElementById('ansInput');
 	const previous_button_div = document.getElementById('previous_button');
 	const next_button_div = document.getElementById('next_button');
+	const button_area_div = document.getElementById('buttons_area');
+	
 	if (mode=="QUIZ"){
 		constructure_previous_next_buttons(question_index, previous_button_div, next_button_div);
 		document.getElementById('dotButton').addEventListener('click', function() {
@@ -25,8 +27,17 @@ $(document).ready(function () {
 		}
 	}
 	if (mode == "REVIEW"){
-		$('#dotButton').prop('disabled', true);
-		$('#dashButton').prop('disabled', true);
+		// $('#dotButton').remove();
+		// $('#dashButton').remove();
+		$('#clearBtn').remove();
+		document.getElementById('dotButton').textContent = "Correct_answer"
+		document.getElementById('dashButton').textContent = correct_answer
+		// var $correct_answer_box = $('<input>', {
+		// 	type: 'text',
+		// 	value: correct_answer,
+		// 	id: 'correct_answer_box'
+		// });
+		// button_area_div.append($correct_answer_box);
 		// Adding correct answer here
 		document.getElementById('ansInput').value = quiz_question['user_answer']
 		constructure_back_to_results_buttons(next_button_div)
