@@ -1,12 +1,21 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'finish.js') }}"></script>
+
+<script>
+	let recordTime = {{ learning_time | tojson}};
+    let learningWords = {{ learning_words | tojson }};
+    let totalTime = {{ totaltime | tojson}};
+</script>
 <div class="finished">
     <div class="words-menu-title">You Finished Learning Part!</div>
     <div class="container">
+        <div id="timespend">
+        </div>
         <div class="row justify-content-center deletemargin">
             <div class="col text-layout">
-                <a href="{{ url_for('menuchar') }}">
+                <a href="{{ url_for('word_learning', index = 0) }}">
                     <button class="buttonlayout btn btn-outline-secondary">LEARNING AGAIN</button>
                 </a>
             </div>

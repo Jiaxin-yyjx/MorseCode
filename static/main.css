@@ -281,4 +281,9 @@ text{
     margin-bottom: 40px;
     margin-top: 40px
 }
+.table-primary {
+    background-color: #e9ecef;
+    font-weight: bold; 
+}
+
 /* Quiz Part */
