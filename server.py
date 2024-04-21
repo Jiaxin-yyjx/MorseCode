@@ -6,14 +6,58 @@ from collections import UserString
 app = Flask(__name__)
 
 # Data
-words = {
-    0: "SOS",
-    1: "YES",
-    2: "NO",
-    3: "OK",
-    4: "STOP"
+learning_data = {
+    0: "S",
+    1: "O",
+    2: "Y",
+    3: "E",
+    4: "N",
+    5: "K",
+    6: "T",
+    7: "P",
+    8: "SOS",
+    9: "YES",
+    10: "NO",
+    11: "OK",
+    12: "STOP"
 }
-
+letter_data = {
+    0: "S",
+    1: "O",
+    2: "Y",
+    3: "E",
+    4: "N",
+    5: "K",
+    6: "T",
+    7: "P",
+}
+words = {
+    8: "SOS",
+    9: "YES",
+    10: "NO",
+    11: "OK",
+    12: "STOP"
+}
+learning_time = {
+    0:0,
+    1:0,
+    2:0,
+    3:0,
+    4:0,
+    5:0,
+    6:0,
+    7:0,
+    8:0,
+    9:0,
+    10:0,
+    11:0,
+    12:0,
+}
+letters_row1 = [chr(i) for i in range(65, 75)]
+letters_row2 = [chr(i) for i in range(75, 84)]
+letters_row3 = [chr(i) for i in range(84, 91)]
+current_learn = 0
+totaltime = 0
 QUIZ_QUESTION_TYPE =["MULTIPLE_CHOICE", "SPELLING", "SOUND_CHOICE", "VISUAL_CHOICE"]
 morse_code_dict_Char = {
     'A': '.-',    'B': '-...',  'C': '-.-.',  'D': '-..',   'E': '.', 
@@ -67,18 +111,19 @@ def intro():
 # Learn related API
 @app.route('/menuchar')
 def menuchar():
-    letters_row1 = [chr(i) for i in range(65, 75)]  # A-J
-    letters_row2 = [chr(i) for i in range(75, 84)]  # K-S
-    letters_row3 = [chr(i) for i in range(84, 91)]  # T-Z
-    return render_template('Learn/menuchar.html', letters_row1=letters_row1, letters_row2=letters_row2, letters_row3=letters_row3, words=words)
+    global words, letter_data
+    return render_template('Learn/menuchar.html', words= words, letters = letter_data)
 
 @app.route('/wordlearning/<int:index>')
 def word_learning(index):
-    return render_template('Learn/wordlearning.html', index=index, words=words, word=words[index], morse_code_dict=morse_code_dict_Char)
+    global learning_data, current_learn
+    current_learn  = index
+    return render_template('Learn/wordlearning.html', index=current_learn, word=learning_data[current_learn], morse_code_dict=morse_code_dict_Char)
 
 @app.route('/finishedlearning')
 def finished_learning():
-    return render_template('Learn/finishedlearning.html')
+    global learning_time, totaltime, learning_data
+    return render_template('Learn/finishedlearning.html', learning_time=learning_time, learning_words=learning_data, totaltime=totaltime)
 
 @app.route('/start')
 def start():
@@ -87,6 +132,25 @@ def start():
 @app.route('/dashtree')
 def dashtree():
     return render_template('learn/dashtree.html')
+
+@app.route('/record_time', methods=['POST'])
+def record_time():
+    global totaltime
+    global learning_time
+    data = request.get_json()
+    time_spent = data['timeSpent']
+    page_index = data['index']
+    print(data)
+    print(f"Time spent on page: {time_spent} seconds")
+    totaltime += time_spent
+    learning_time[int(page_index)] += float(time_spent)
+    return jsonify(success=True)
+
+# Tool related API
+@app.route('/charmenu')
+def charmenu():
+    global letters_row1, letters_row2, letters_row3
+    return render_template('Tool/charmenu.html',letters_row1=letters_row1, letters_row2=letters_row2, letters_row3=letters_row3)
 
 # Quiz related API
 @app.route('/quiz_landing', methods=['GET'])

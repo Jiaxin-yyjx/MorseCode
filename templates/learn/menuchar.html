@@ -5,50 +5,33 @@
 <div class="morsemenu">
     <div class="morsemenu">
         <div class="char-borad-title">
-            CHOOSE CHARACTER to LISTEM
+            Welcome to Learn!
         </div>
         <a class="momory-tree-link" href="{{url_for('dashtree') }}">
             click here to see how to memorize it
         </a>
-    </div>
-    <div class="container">
-        <div class="row justify-content-center onerowchar">
-            {% for letter in letters_row1 %}
-                <div class="col-1">
-                    <div class="morsemenu-char-card" 
-                        data-letter="{{ letter }}" 
-                        data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ letter ~ '.mp3') }}">
-                        {{ letter }}
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="row justify-content-center onerowchar">
-            {% for letter in letters_row2 %}
-                <div class="col-1">
-                    <div class="morsemenu-char-card" 
-                        data-letter="{{ letter }}" 
-                        data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ letter ~ '.mp3') }}">
-                        {{ letter }}
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="row justify-content-center onerowchar">
-            {% for letter in letters_row3 %}
-                <div class="col-1">
-                    <div class="morsemenu-char-card" 
-                        data-letter="{{ letter }}" 
-                        data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ letter ~ '.mp3') }}">
-                        {{ letter }}
-                    </div>
-                </div>
-            {% endfor %}
+        <div class="char-borad-title">
+            We will teach in two steps. The first step involves learning
+             the Morse code for eight letters. The second step will focus
+              on learning the Morse code for five words, which are composed
+              of the eight letters we've already learned.
         </div>
     </div>
     <div class="words-to-learn">
         <div class="words-menu-title">
-            CHOOSE ONE WORD to START LEARNING
+            LEVEL 1: Eight Letters to Teach
+        </div>
+        <div class="container">
+            <div class="row justify-content-md-center onerowchar">
+                {% for index, letter in letters.items() %}
+                <div class="col-md-auto wordbutton">
+                    <a class="buttontext"href="{{ url_for('word_learning',index=index)}}">{{ letter }}</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="words-menu-title">
+            LEVEL 2: Five Words to Teach
         </div>
         <div class="container">
             <div class="row justify-content-md-center onerowchar">
@@ -60,10 +43,15 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center deletemargin">
+    <div class="row justify-content-between deletemargin">
         <div class="col-3">
             <a href="{{ url_for('start') }}">
             <button class="buttonlayout btn btn-outline-secondary">Back to List</button>
+            </a>
+        </div>
+        <div class="col-3">
+            <a href="{{ url_for('word_learning', index=0) }}">
+                <button class="buttonlayout btn btn-outline-secondary">Start Learning</button>
             </a>
         </div>
     </div>
