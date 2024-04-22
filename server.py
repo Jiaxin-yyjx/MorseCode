@@ -53,6 +53,7 @@ learning_time = {
     11:0,
     12:0,
 }
+videos = ['SOS']
 letters_row1 = [chr(i) for i in range(65, 75)]
 letters_row2 = [chr(i) for i in range(75, 84)]
 letters_row3 = [chr(i) for i in range(84, 91)]
@@ -114,7 +115,7 @@ def menuchar():
 def word_learning(index):
     global learning_data, current_learn
     current_learn  = index
-    return render_template('Learn/wordlearning.html', index=current_learn, word=learning_data[current_learn], morse_code_dict=morse_code_dict_Char)
+    return render_template('Learn/wordlearning.html', index=current_learn, word=learning_data[current_learn], morse_code_dict=morse_code_dict_Char, videos=videos)
 
 @app.route('/finishedlearning')
 def finished_learning():
@@ -142,6 +143,9 @@ def record_time():
     learning_time[int(page_index)] += float(time_spent)
     return jsonify(success=True)
 
+@app.route('/levelnotice')
+def levelnotice():
+    return render_template('learn/levelnotify.html')
 # Tool related API
 @app.route('/charmenu')
 def charmenu():
