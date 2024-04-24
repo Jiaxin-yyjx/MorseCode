@@ -96,16 +96,22 @@
     width: 40rem;
 }
 /* menu char words*/
+.introtolearntext {
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+}
 .morsemenu {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 40px;
 }
 .char-borad-title {
     color: #000;
     text-align: center;
-    font-family: "Josefin Sans";
-    font-size: 2rem;
+    font-family: "Courier New";
+    font-size: 36px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -114,18 +120,19 @@
 .momory-tree-link {
     display: inline-block;
     text-align: center;
-    margin-bottom: 2rem;
+    font-size: 14px;
+    color: lightgray;
 }
 .words-menu-title {
     color: #000;
     text-align: center;
     font-family: "Josefin Sans";
-    font-size: 2rem;
+    font-size: 30px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
+    line-height: 30px;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
 }
 .morsemenu-char-card {
     width: 5rem;
@@ -170,8 +177,19 @@
     font-weight: 700;
     line-height: normal;
     text-decoration: none;
+    transition: background-color 0.3s;
+}
+.buttontext:hover {
+    color: white;
+}
+.wordbutton:hover {
+    background-color: orange;
 }
 /* word learning */
+.iconlayout {
+    width: 80px;
+    height: auto;
+}
 .playcharsound {
     align-items: center;
 }
