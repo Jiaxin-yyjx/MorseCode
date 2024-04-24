@@ -123,6 +123,9 @@
     font-size: 14px;
     color: lightgray;
 }
+.momory-tree-link:hover {
+    color: orange;
+}
 .words-menu-title {
     color: #000;
     text-align: center;
