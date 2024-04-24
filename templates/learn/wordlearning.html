@@ -5,8 +5,15 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'recordtime.js') }}"></script>
 
 <div class="wordlearning">
-    <div class="words-menu-title">Learning Word Journey</div>
     <div class="container">
+        <div class="row justify-content-end deletemargin">
+            <div class="col-3">
+                <a href="{{ url_for('menuchar') }}">
+                <button class="buttonlayout btn btn-outline-secondary">Back to Menu</button>
+                </a>
+            </div>
+        </div>
+        <div class="words-menu-title">Learning Word Journey</div>
         <div class="row justify-content-center deletemargin">
             <div class="col text-layout">
                 <div class="wordname">{{word}}</div>
@@ -14,14 +21,7 @@
                         data-word="{{ word  }}"
                         data-index="{{ index}}" 
                         data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ word ~ '.mp3') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="64" height="64" viewBox="0 0 256 256" xml:space="preserve">
-
-                            <defs>
-                            </defs>
-                            <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
-                                <path d="M 88.119 23.338 c -1.035 -3.872 -4.085 -6.922 -7.957 -7.957 C 73.144 13.5 45 13.5 45 13.5 s -28.144 0 -35.162 1.881 c -3.872 1.035 -6.922 4.085 -7.957 7.957 C 0 30.356 0 45 0 45 s 0 14.644 1.881 21.662 c 1.035 3.872 4.085 6.922 7.957 7.957 C 16.856 76.5 45 76.5 45 76.5 s 28.144 0 35.162 -1.881 c 3.872 -1.035 6.922 -4.085 7.957 -7.957 C 90 59.644 90 45 90 45 S 90 30.356 88.119 23.338 z M 36 58.5 v -27 L 59.382 45 L 36 58.5 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                            </g>
-                            </svg>
+                        <img src="{{url_for('static', filename='images/icon.png')}}" class="iconlayout" />
                     </div>
             </div>
             <div class="col addoneline">
@@ -37,14 +37,7 @@
                         <div class="playcharsound" 
                         data-letter="{{ letter }}" 
                         data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ letter ~ '.mp3') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="64" height="64" viewBox="0 0 256 256" xml:space="preserve">
-
-                            <defs>
-                            </defs>
-                            <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
-                                <path d="M 88.119 23.338 c -1.035 -3.872 -4.085 -6.922 -7.957 -7.957 C 73.144 13.5 45 13.5 45 13.5 s -28.144 0 -35.162 1.881 c -3.872 1.035 -6.922 4.085 -7.957 7.957 C 0 30.356 0 45 0 45 s 0 14.644 1.881 21.662 c 1.035 3.872 4.085 6.922 7.957 7.957 C 16.856 76.5 45 76.5 45 76.5 s 28.144 0 35.162 -1.881 c 3.872 -1.035 6.922 -4.085 7.957 -7.957 C 90 59.644 90 45 90 45 S 90 30.356 88.119 23.338 z M 36 58.5 v -27 L 59.382 45 L 36 58.5 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                            </g>
-                            </svg>
+                        <img src="{{url_for('static', filename='images/icon.png')}}" class="iconlayout" />
                         </div>
                     </div>
                 </div>
@@ -59,11 +52,6 @@
             {% endif %}
         </div>
         <div class="row justify-content-between deletemargin">
-            <div class="col-3">
-                <a href="{{ url_for('menuchar') }}">
-                <button class="buttonlayout btn btn-outline-secondary">Back to Menu</button>
-                </a>
-            </div>
             {% if index > 0 %}
             <div class="col-3">
                 <a href="{{ url_for('word_learning', index=index - 1) }}">

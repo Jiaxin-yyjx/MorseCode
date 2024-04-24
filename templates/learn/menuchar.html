@@ -5,16 +5,19 @@
 <div class="morsemenu">
     <div class="morsemenu">
         <div class="char-borad-title">
-            Welcome to Learn!
+            Welcome to Learn Morse Code
         </div>
         <a class="momory-tree-link" href="{{url_for('dashtree') }}">
-            click here to see how to memorize it
+            click here to help memorize
         </a>
-        <div class="char-borad-title">
-            We will teach in two steps. The first step involves learning
-             the Morse code for eight letters. The second step will focus
-              on learning the Morse code for five words, which are composed
-              of the eight letters we've already learned.
+        <div class="introtolearntext">
+            We will teach in <strong> two </strong>steps. 
+        </div>
+        <div class="introtolearntext">
+            Level 1: learn the Morse code for <strong>eight letters</strong>
+        </div>
+        <div class="introtolearntext">
+            Level 2: learn the Morse code for <strong>five words</strong>
         </div>
     </div>
     <div class="words-to-learn">
@@ -25,7 +28,7 @@
             <div class="row justify-content-md-center onerowchar">
                 {% for index, letter in letters.items() %}
                 <div class="col-md-auto wordbutton">
-                    <a class="buttontext"href="{{ url_for('word_learning',index=index)}}">{{ letter }}</a>
+                    <a class="buttontext" href="{{ url_for('word_learning',index=index)}}">{{ letter }}</a>
                 </div>
                 {% endfor %}
             </div>
@@ -37,7 +40,7 @@
             <div class="row justify-content-md-center onerowchar">
                 {% for index, word in words.items() %}
                 <div class="col-md-auto wordbutton">
-                    <a class="buttontext"href="{{ url_for('word_learning',index=index)}}">{{ word }}</a>
+                    <a class="buttontext" href="{{ url_for('word_learning',index=index)}}">{{ word }}</a>
                 </div>
                 {% endfor %}
             </div>
@@ -45,7 +48,7 @@
     </div>
     <div class="row justify-content-between deletemargin">
         <div class="col-3">
-            <a href="{{ url_for('start') }}">
+            <a  href="{{ url_for('start') }}">
             <button class="buttonlayout btn btn-outline-secondary">Back to List</button>
             </a>
         </div>
