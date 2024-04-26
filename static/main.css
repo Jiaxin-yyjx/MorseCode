@@ -47,9 +47,15 @@
     transform: translate(-50%, -50%);
     width: 400px;
 }
+
 .changefont {
     font-family: "Courier New";
-    font-weight: 800;
+    font-weight: 900;
+}
+
+.navBar {
+    font-family: "Courier New";
+    font-weight: 600;
 }
 
 /* Learn Part */
@@ -60,16 +66,18 @@
     justify-content: center;
     padding-top: 3rem;
 }
+
 .introduction {
     color: #000;
     text-align: center;
-    font-family: "Josefin Sans";
+    font-family: "Courier New";
     font-size: 2.5rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     margin-bottom: 20px;
 }
+
 .introtext {
     color: #000;
     text-align: center;
@@ -80,10 +88,12 @@
     line-height: normal;
     margin-bottom: 10px;
 }
+
 .deletemargin {
     margin-left: 0px;
     margin-right: 0px;
 }
+
 .morse-code-card {
     display: flex;
     flex-direction: column;
@@ -95,27 +105,33 @@
     text-align: center;
 
 }
+
 .videolayout {
     width: 40rem;
 }
+
 /* menu char words*/
 .addmargin {
     margin-top: 10px;
 }
+
 .changecolor {
     color: orange;
 }
+
 .introtolearntext {
     font-size: 20px;
     line-height: 24px;
     text-align: center;
 }
+
 .morsemenu {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 40px;
 }
+
 .char-borad-title {
     color: #000;
     text-align: center;
@@ -126,15 +142,18 @@
     line-height: normal;
     margin-top: 3rem;
 }
+
 .momory-tree-link {
     display: inline-block;
     text-align: center;
     font-size: 14px;
     color: lightgray;
 }
+
 .momory-tree-link:hover {
     color: orange;
 }
+
 .words-menu-title {
     color: #000;
     text-align: center;
@@ -146,6 +165,7 @@
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
 }
+
 .morsemenu-char-card {
     width: 5rem;
     height: 5rem;
@@ -163,10 +183,12 @@
     font-weight: 700;
     line-height: normal;
 }
+
 .onerowchar {
     padding-bottom: 1rem;
     padding-top: 1rem;
 }
+
 .wordbutton {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
@@ -177,6 +199,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
 .buttontext {
     display: flex;
     flex-direction: column;
@@ -191,39 +214,49 @@
     text-decoration: none;
     transition: background-color 0.3s;
 }
+
 .buttontext:hover {
     color: white;
 }
+
 .wordbutton:hover {
     background-color: orange;
 }
+
 /* word learning */
 .addpadding {
     padding-top: 80px;
     padding-bottom: 80px;
 }
+
 .iconlayout {
     width: 80px;
     height: auto;
 }
+
 .playcharsound {
     align-items: center;
 }
+
 .letter {
     font-size: 2rem;
     font-weight: 600;
 }
+
 .videolayoutword {
     width: 20rem;
 }
+
 .signforletter {
     font-size: 3rem;
 }
+
 .text-layout {
     margin: auto;
     text-align: center;
     align-items: center;
 }
+
 .wordname {
     color: #000;
     text-align: center;
@@ -235,29 +268,35 @@
     margin-bottom: 10px;
     margin-top: 10px;
 }
+
 .letter-image-sound {
     margin: 1rem 1rem;
 }
+
 .addoneline {
     border-left: 1px solid #000;
     align-items: center;
 }
+
 /* finished page */
 .finished {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
 .buttonlayout {
     display: inline-block;
     width: 15rem;
     height: 5rem;
     margin-top: 5rem;
 }
+
 .finishedtext {
     margin-top: 40px;
     margin-bottom: 40px;
 }
+
 /* start page */
 .startpage {
     display: flex;
@@ -274,41 +313,72 @@
     margin-bottom: 1.5rem;
     border-radius: 3rem;
 }
+
 /* dashtree  */
-circle, line, path{
+circle,
+line,
+path {
     fill: none;
     stroke: #000;
     stroke-width: 2.5;
 }
+
 circle {
     fill: transparent;
     cursor: pointer;
 }
-text, line, path {
+
+text,
+line,
+path {
     pointer-events: none;
 }
-circle{
+
+circle {
     stroke-width: 1.5;
 }
-text{
+
+text {
     font-size: 28px;
     font-family: "Bitstream Charter", Charter, serif;
     text-anchor: middle;
 }
-.arrowhead{
+
+.arrowhead {
     fill: #000;
     stroke-width: 3.2;
 }
-.big  { stroke-width: 3; font-size: 32px; }
-.dot  { stroke-dasharray: 2.5, 7.5; }
-.dash { stroke-dasharray: 7.5, 7.5; }
-.thin { stroke-width: 1; }
-.grey { stroke: #808080; }
-.tiny { font-size: 20px; }
+
+.big {
+    stroke-width: 3;
+    font-size: 32px;
+}
+
+.dot {
+    stroke-dasharray: 2.5, 7.5;
+}
+
+.dash {
+    stroke-dasharray: 7.5, 7.5;
+}
+
+.thin {
+    stroke-width: 1;
+}
+
+.grey {
+    stroke: #808080;
+}
+
+.tiny {
+    font-size: 20px;
+}
+
 .dashtreesvg {
     width: 1000px;
     height: auto
 }
+
 .morse_code_tree {
     color: #000;
     text-align: center;
@@ -320,46 +390,56 @@ text{
     margin-bottom: 40px;
     margin-top: 40px
 }
+
 .table-primary {
     background-color: #e9ecef;
-    font-weight: bold; 
+    font-weight: bold;
 }
+
 /* tablepolish */
 .centered {
     margin: 0 auto;
 }
+
 .table {
     width: 100%;
 }
-.table th, .table td {
+
+.table th,
+.table td {
     width: 50%;
     text-align: center;
 }
+
 .timespend {
     padding-left: 50px;
     padding-right: 50px;
 }
+
 .addtablecolor {
     background-color: lightsalmon;
 }
+
 /* finish the first level */
 .finishfirstlevel {
-    background-image: url('/static/images/image.png') ;
-    filter: brightness(200%);
-    width: 1116px;
+    background-image: url('/static/images/image.png');
+    filter: brightness(150%);
+    width: 1000px;
     height: 300px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
+
 /* Quiz Part */
 .multiple-choice-button {
     margin-bottom: 20px;
     width: 300px;
     margin-left: 130px;
     margin-right: 10px
-  }
-.multiple-choice-button-for-sound{
+}
+
+.multiple-choice-button-for-sound {
     margin-bottom: 20px;
 }
 
@@ -371,6 +451,6 @@ text{
     float: right;
 }
 
-.title_row{
+.title_row {
     justify-content: space-between;
 }

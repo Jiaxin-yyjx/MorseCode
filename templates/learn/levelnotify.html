@@ -1,29 +1,38 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="wordlearning">
+<!-- <div class="wordlearning">
     <div class="char-borad-title">Congratulations!</div>
     <div class="words-menu-title">You Finished the Level 1</div>
-    <div class="words-menu-title">Next I will Teach You <strong class="changecolor">Five Words</strong> at <strong class="changecolor">Level 2</strong> </div>
-    <div class="finishfirstlevel"></div>
-    
-    <div class="container">
-        <div class="row justify-content-between deletemargin">
-            <div class="col-3">
-                <a href="{{ url_for('menuchar') }}">
-                <button class="spbuttonlayout btn btn-outline-secondary">Back to Menu</button>
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="{{ url_for('word_learning', index=7) }}">
+    <div class="words-menu-title">Next I will Teach You <strong class="changecolor">Five Words</strong> at <strong
+            class="changecolor">Level 2</strong> </div>
+    <div class="finishfirstlevel"></div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="char-borad-title">Congratulations!</div>
+        <div class="words-menu-title">You Finished the Level 1</div>
+        <div class="words-menu-title">Next I will Teach You <strong class="changecolor">Five Words</strong> at
+            <strong class="changecolor">Level 2</strong>
+        </div>
+        <div class="finishfirstlevel"></div>
+    </div>
+    <div class="row justify-content-between deletemargin">
+        <div class="col-3">
+            <a href="{{ url_for('word_learning', index=7) }}">
                 <button class="spbuttonlayout btn btn-outline-secondary">Last</button>
-                </a>
-            </div>
-            <div class="col-3">
-                <a href="{{ url_for('word_learning', index=8) }}">
-                    <button class="spbuttonlayout btn btn-outline-secondary">Next</button>
-                </a>
-            </div>
+            </a>
+        </div>
+        <div class="col-3">
+            <a href="{{ url_for('menuchar') }}">
+                <button class="spbuttonlayout btn btn-outline-secondary">Back to Menu</button>
+            </a>
+        </div>
+        <div class="col-3">
+            <a href="{{ url_for('word_learning', index=8) }}">
+                <button class="spbuttonlayout btn btn-outline-secondary">Next</button>
+            </a>
         </div>
     </div>
+</div>
 {% endblock %}
