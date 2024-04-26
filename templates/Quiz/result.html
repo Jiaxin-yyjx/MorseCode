@@ -10,8 +10,12 @@
 
 <div class="container">
 	<div class="row justify-content-center">
-		<div class="subtitle_frame col-md-auto">
+		<div class=" col-md-auto">
+			{% if quiz_score<5 %}
+			<h2>PLEASE TRY AGAIN! YOU MADE {{quiz_score}}/10 SUCCESSFULLY.</h2>
+			{% else %}
 			<h2>CONGRATULATIONS! YOU MADE {{quiz_score}}/10 SUCCESSFULLY!</h2>
+			{% endif %}
 		</div>
 	</div>
 	<div class="row">
@@ -29,20 +33,20 @@
 </div>
 
 
-<div class="row">
-	<div class="col">
+<div class="row justify-content-between">
+	<div class="col col-3">
 		<a href="/start">
-			<button type="button" class=" btn btn-secondary btn-lg">LEARNING AGAIN</button>
+			<button type="button" class="btn btn-outline-secondary btn-lg">LEARNING AGAIN</button>
 		</a>
 	</div>
-	<div class="col">
+	<div class="col col-3">
 		<a href="/quiz_landing">
-			<button type="button" class="btn btn-secondary btn-lg">RETAKE</button>
+			<button type="button" class="btn btn-outline-info btn-lg">RETAKE</button>
 		</a>
 	</div>
-	<div class="col">
+	<div class="col col-3">
 		<a href="/">
-			<button type="button" class="btn btn-secondary btn-lg">END SESSION</button>
+			<button type="button" class="btn btn-outline-danger btn-lg">END SESSION</button>
 		</a>
 	</div>
 </div>

@@ -45,12 +45,12 @@ function show_choies_correct_answer(choices){
 		choice_letter = question_answer_pair[0];
 		choice_morse_code = question_answer_pair[1];
 		let button = document.createElement('button');
-		button.className = 'btn btn-outline-secondary';
+		button.className = 'btn btn-outline-secondary multiple-choice-button';
 		if (quiz_question['user_answer'] == choice_letter){
-			button.className = 'btn btn-outline-danger';
+			button.className = 'btn btn-outline-danger multiple-choice-button';
 		}
 		if (quiz_question['correct_answer'] == choice_letter){
-			button.className = 'btn btn-outline-success';
+			button.className = 'btn btn-outline-success multiple-choice-button';
 		}
 		button.textContent = choice_morse_code;
 		button.setAttribute('choice_answer_id', index);  // Custom attribute to identify the button
@@ -64,6 +64,7 @@ function show_choies_correct_answer(choices){
 function constructure_back_to_results_buttons(next_button_div){
 	let back_to_results = document.createElement('button');
 	back_to_results.textContent = "Results";
+	back_to_results.setAttribute('class', "btn btn-outline-info");
 	next_button_div.appendChild(back_to_results);
 	next_button_div.addEventListener('click',function(event){
 		window.location.href = "/quiz_result";
@@ -76,15 +77,15 @@ function constructure_multiple_choice_answers(question_index, answers_container,
 		choice_morse_code = question_answer_pair[1];
 		let button = document.createElement('button');
 		if (mode =="QUIZ"){
-			button.className = 'btn btn-secondary';
+			button.className = 'btn btn-outline-secondary multiple-choice-button';
 		}else if (mode == "REVIEW"){
-			button.className = 'btn btn-secondary';
+			button.className = 'btn btn-outline-secondary multiple-choice-button';
 
 			if (quiz_question['user_answer'] == choice_letter){
-				button.className = 'btn btn-danger';
+				button.className = 'btn btn-outline-danger multiple-choice-button';
 			}
 			if (quiz_question['correct_answer'] == choice_letter){
-				button.className = 'btn btn-success';
+				button.className = 'btn btn-outline-success multiple-choice-button';
 			}
 		}
 		button.textContent = choice_letter;

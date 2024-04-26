@@ -308,3 +308,24 @@ text{
 }
 
 /* Quiz Part */
+.multiple-choice-button {
+    margin-bottom: 20px;
+    width: 300px;
+    margin-left: 130px;
+    margin-right: 10px
+  }
+.multiple-choice-button-for-sound{
+    margin-bottom: 20px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.title_row{
+    justify-content: space-between;
+}

@@ -10,6 +10,7 @@ $(document).ready(function () {
 	
 	if (mode=="QUIZ"){
 		constructure_previous_next_buttons(question_index, previous_button_div, next_button_div);
+		updateClearButtonVisibility()
 		document.getElementById('dotButton').addEventListener('click', function() {
 			document.getElementById('ansInput').value += '.';
 			updateClearButtonVisibility() 
@@ -48,6 +49,7 @@ $(document).ready(function () {
 function constructure_back_to_results_buttons(next_button_div){
 	let back_to_results = document.createElement('button');
 	back_to_results.textContent = "Results";
+	back_to_results.setAttribute('class', "btn btn-outline-info");
 	next_button_div.appendChild(back_to_results);
 	next_button_div.addEventListener('click',function(event){
 		window.location.href = "/quiz_result";
@@ -57,7 +59,7 @@ function constructure_back_to_results_buttons(next_button_div){
 function constructure_previous_next_buttons(question_index, previous_button_div, next_button_div){
 	let next_button = document.createElement('button');
 	next_button.textContent = "Next";
-	next_button.className = 'btn btn-primary';
+	next_button.className = 'btn btn-outline-secondary';
 	next_button_div.appendChild(next_button);
 	next_button_div.addEventListener('click',function(event){
 		if (event.target.tagName === 'BUTTON') {

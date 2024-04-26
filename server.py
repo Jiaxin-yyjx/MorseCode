@@ -1,3 +1,4 @@
+import copy
 from flask import Flask, Response, jsonify, render_template, request
 import json
 import random
@@ -193,7 +194,8 @@ def get_previou_question():
 def get_question_index(question_index):
     global quiz_dashboard, quiz_score
     print(quiz_dashboard)
-    quiz_question = quiz_dashboard[question_index]
+    quiz_question = copy.deepcopy(quiz_dashboard[question_index])
+    quiz_question['question_index'] += 1
     quiz_question['mode'] = "REVIEW"
 
     if quiz_question['type'] == "MULTIPLE_CHOICE":
