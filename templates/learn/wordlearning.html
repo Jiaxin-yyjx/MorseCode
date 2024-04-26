@@ -6,23 +6,18 @@
 
 <div class="wordlearning">
     <div class="container">
-        <div class="row justify-content-end deletemargin">
-            <div class="col-3">
-                <a href="{{ url_for('menuchar') }}">
-                <button class="buttonlayout btn btn-outline-secondary">Back to Menu</button>
-                </a>
-            </div>
-        </div>
-        <div class="words-menu-title">Learning Word Journey</div>
-        <div class="row justify-content-center deletemargin">
+        <div class="char-borad-title">Learning Word Journey</div>
+        <div class="row justify-content-center align-items-center deletemargin addpadding">
             <div class="col text-layout">
                 <div class="wordname">{{word}}</div>
+                {% if index > 7 %}
                 <div id="js-data" class="playcharsound" 
                         data-word="{{ word  }}"
                         data-index="{{ index}}" 
                         data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ word ~ '.mp3') }}">
                         <img src="{{url_for('static', filename='images/icon.png')}}" class="iconlayout" />
-                    </div>
+                </div>
+                {% endif %}
             </div>
             <div class="col addoneline">
                 {% for letter in word %}
@@ -55,22 +50,27 @@
             {% if index > 0 %}
             <div class="col-3">
                 <a href="{{ url_for('word_learning', index=index - 1) }}">
-                <button class="buttonlayout btn btn-outline-secondary">Last</button>
+                <button class="spbuttonlayout btn btn-outline-secondary">Last</button>
                 </a>
             </div>
             {% endif %}
             <div class="col-3">
+                <a href="{{ url_for('menuchar') }}">
+                <button class="spbuttonlayout btn btn-outline-secondary">Back to Menu</button>
+                </a>
+            </div>
+            <div class="col-3">
                 {% if index == 12 %}
                 <a href="{{ url_for('finished_learning') }}">
-                    <button class="buttonlayout btn btn-outline-secondary">Finished</button>
+                    <button class="spbuttonlayout btn btn-outline-secondary">Finished</button>
                 </a>
                 {% elif index == 7 %}
                 <a href="{{ url_for('levelnotice') }}">
-                    <button class="buttonlayout btn btn-outline-secondary">Next Phase</button>
+                    <button class="spbuttonlayout btn btn-outline-secondary">Next Phase</button>
                 </a>
                 {% else %}
                 <a href="{{ url_for('word_learning', index=index + 1) }}">
-                    <button class="buttonlayout btn btn-outline-secondary">Next</button>
+                    <button class="spbuttonlayout btn btn-outline-secondary">Next</button>
                 </a>
                 {% endif %}
             </div>

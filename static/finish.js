@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    let $table = $('<table/>').addClass('table table-striped');
+    let $table = $('<table/>').addClass('table table-striped centered');
     let $thead = $('<thead/>');
     let $tbody = $('<tbody/>');
 
@@ -8,15 +8,16 @@ $(document).ready(function() {
 
     $.each(recordTime, function(index, time) {
         let word = learningWords[index];
+        let roundedTime = Math.round(time);
         let $row = $('<tr/>');
         $row.append($('<td/>').text(word));
-        $row.append($('<td/>').text(time));
+        $row.append($('<td/>').text(roundedTime));
         $tbody.append($row);
     });
 
-    let $totalRow = $('<tr/>').addClass('table-primary');
+    let $totalRow = $('<tr/>').addClass('addtablecolor');
     $totalRow.append($('<td/>').text('Total Time'));
-    $totalRow.append($('<td/>').text(totalTime));
+    $totalRow.append($('<td/>').text(Math.round(totalTime)));
     $tbody.append($totalRow);
     $table.append($tbody);
     $('#timespend').append($table);
