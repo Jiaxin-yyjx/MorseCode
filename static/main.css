@@ -103,7 +103,8 @@
     background-color: lightgray;
     margin: auto;
     text-align: center;
-
+    font-size: 100px;
+    margin-top: 20px;
 }
 
 .videolayout {
@@ -424,7 +425,7 @@ text {
 .finishfirstlevel {
     background-image: url('/static/images/image.png');
     filter: brightness(150%);
-    width: 1000px;
+    width: 1116px;
     height: 300px;
     background-size: cover;
     background-position: center;
