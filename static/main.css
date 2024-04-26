@@ -47,7 +47,10 @@
     transform: translate(-50%, -50%);
     width: 400px;
 }
-
+.changefont {
+    font-family: "Courier New";
+    font-weight: 800;
+}
 
 /* Learn Part */
 /* Intro */
@@ -96,6 +99,12 @@
     width: 40rem;
 }
 /* menu char words*/
+.addmargin {
+    margin-top: 10px;
+}
+.changecolor {
+    color: orange;
+}
 .introtolearntext {
     font-size: 20px;
     line-height: 24px;
@@ -113,9 +122,9 @@
     font-family: "Courier New";
     font-size: 36px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 800;
     line-height: normal;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 .momory-tree-link {
     display: inline-block;
@@ -129,7 +138,7 @@
 .words-menu-title {
     color: #000;
     text-align: center;
-    font-family: "Josefin Sans";
+    font-family: "Courier New";
     font-size: 30px;
     font-style: normal;
     font-weight: 400;
@@ -189,6 +198,10 @@
     background-color: orange;
 }
 /* word learning */
+.addpadding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
 .iconlayout {
     width: 80px;
     height: auto;
@@ -219,14 +232,15 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-bottom: 5rem;
-    margin-top: 5rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 .letter-image-sound {
     margin: 1rem 1rem;
 }
 .addoneline {
     border-left: 1px solid #000;
+    align-items: center;
 }
 /* finished page */
 .finished {
@@ -239,6 +253,10 @@
     width: 15rem;
     height: 5rem;
     margin-top: 5rem;
+}
+.finishedtext {
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 /* start page */
 .startpage {
@@ -306,7 +324,34 @@ text{
     background-color: #e9ecef;
     font-weight: bold; 
 }
-
+/* tablepolish */
+.centered {
+    margin: 0 auto;
+}
+.table {
+    width: 100%;
+}
+.table th, .table td {
+    width: 50%;
+    text-align: center;
+}
+.timespend {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.addtablecolor {
+    background-color: lightsalmon;
+}
+/* finish the first level */
+.finishfirstlevel {
+    background-image: url('/static/images/image.png') ;
+    filter: brightness(200%);
+    width: 1116px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 /* Quiz Part */
 .multiple-choice-button {
     margin-bottom: 20px;

@@ -11,13 +11,13 @@
             click here to help memorize
         </a>
         <div class="introtolearntext">
-            We will teach in <strong> two </strong>steps. 
+            We will teach in <strong class="changecolor"> two </strong>steps. 
         </div>
         <div class="introtolearntext">
-            Level 1: learn the Morse code for <strong>eight letters</strong>
+            Level 1: learn the Morse code for <strong class="changecolor">eight letters</strong>
         </div>
         <div class="introtolearntext">
-            Level 2: learn the Morse code for <strong>five words</strong>
+            Level 2: learn the Morse code for <strong class="changecolor">five words</strong>
         </div>
     </div>
     <div class="words-to-learn">
@@ -46,15 +46,15 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-between deletemargin">
+    <div class="row justify-content-between deletemargin addmargin">
         <div class="col-3">
             <a  href="{{ url_for('start') }}">
-            <button class="buttonlayout btn btn-outline-secondary">Back to List</button>
+            <button class="spbuttonlayout btn btn-outline-secondary">Back to List</button>
             </a>
         </div>
         <div class="col-3">
             <a href="{{ url_for('word_learning', index=0) }}">
-                <button class="buttonlayout btn btn-outline-secondary">Start Learning</button>
+                <button class="spbuttonlayout btn btn-outline-secondary">Start Learning</button>
             </a>
         </div>
     </div>

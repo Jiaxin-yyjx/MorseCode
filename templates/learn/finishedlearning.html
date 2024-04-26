@@ -9,19 +9,19 @@
     let totalTime = {{ totaltime | tojson}};
 </script>
 <div class="finished">
-    <div class="words-menu-title">You Finished Learning Part!</div>
+    <div class="char-borad-title finishedtext">You Finished the Learning Part!</div>
     <div class="container">
-        <div id="timespend">
+        <div id="timespend" class="timespend">
         </div>
-        <div class="row justify-content-center deletemargin">
+        <div class="row justify-content-center addmargin deletemargin">
             <div class="col text-layout">
                 <a href="{{ url_for('word_learning', index = 0) }}">
-                    <button class="buttonlayout btn btn-outline-secondary">LEARNING AGAIN</button>
+                    <button class="spbuttonlayout btn btn-outline-secondary">LEARNING AGAIN</button>
                 </a>
             </div>
             <div class="col text-layout">
                 <a href="{{ url_for('quiz_landing') }}">
-                    <button class="buttonlayout btn btn-outline-secondary">TEST MYSELF</button>
+                    <button class="spbuttonlayout btn btn-outline-secondary">TEST MYSELF</button>
                 </a>
             </div>
         </div>
