@@ -4,15 +4,16 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'Quiz/spelling.js') }}"></script>
 
 <script>
-	let quiz_question = {{quiz_question | tojson}};
+	let quiz_question = {{ quiz_question | tojson}};
 </script>
 
 <div class="container">
-	<div class="row ">
-		<div class="col-11"> <b>Create the Morse Code:</b><br> Type the Correct Visual Morse Code Using Dot and Dash Buttons</div>
+	<div class="row tip-margin">
+		<div class="col-11"> <b>Create the Morse Code:</b><br> Type the Correct Visual Morse Code Using Dot and Dash
+			Buttons</div>
 		<div class="col-1">{{quiz_question.question_index}}/10</div>
 	</div>
-	<div class="row justify-content-center deletemargin">
+	<div class="row justify-content-center deletemargin tip-margin">
 		<div class="col text-layout">
 			<h2>{{quiz_question.question}}</h2>
 		</div>
@@ -27,13 +28,14 @@
 			</div>
 			<div id="Spelling result box" class="col input-group mb-3">
 				<!-- <span class="input-group-text" id="inputGroup-sizing-default">Ans:</span> -->
-				<input id="ansInput" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-				<span id="clearBtn" class="input-group-text clear-btn" >✖</span>
+				<input id="ansInput" type="text" class="form-control" aria-label="Sizing example input"
+					aria-describedby="inputGroup-sizing-default">
+				<span id="clearBtn" class="input-group-text clear-btn">✖</span>
 			</div>
-			<div class="col "style="margin-bottom: 30px; margin-left: 250px;" >
+			<div class="col " style="margin-bottom: 30px; margin-left: 250px;">
 				<div id="next_button"></div>
 			</div>
-			
+
 		</div>
 	</div>
 	<!-- <div class="row justify-content-between deletemargin">

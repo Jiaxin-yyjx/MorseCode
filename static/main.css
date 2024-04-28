@@ -26,12 +26,12 @@
     top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: clamp(1.4rem, 3.6vw, 5.3vh);
+    font-size: 50px;
 }
 
 .subtitle_frame {
     position: fixed;
-    top: 53%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -45,12 +45,14 @@
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 350px;
+    height: 5rem;
+    border-radius: 3rem;
 }
 
 .changefont {
     font-family: "Courier New";
-    font-weight: 900;
+    font-weight: 800;
 }
 
 .navBar {
@@ -117,7 +119,7 @@
 }
 
 .changecolor {
-    color: orange;
+    color: #FFA500;
 }
 
 .introtolearntext {
@@ -141,7 +143,7 @@
     font-style: normal;
     font-weight: 800;
     line-height: normal;
-    margin-top: 3rem;
+    margin-top: 25px;
 }
 
 .momory-tree-link {
@@ -309,7 +311,7 @@
 .spbuttonlayout {
     display: inline-block;
     width: 15rem;
-    height: 5rem;
+    height: 4rem;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     border-radius: 3rem;
@@ -427,6 +429,7 @@ text {
     filter: brightness(150%);
     width: 1116px;
     height: 300px;
+    margin-left: 65px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -454,4 +457,26 @@ text {
 
 .title_row {
     justify-content: space-between;
+}
+
+.btn-orange-outline {
+    color: #FFA500;
+    /* Sets the text color to orange */
+    border-color: #FFA500;
+    /* Sets the border color to orange */
+    background-color: transparent;
+    /* Keeps the background transparent */
+}
+
+.btn-orange-outline:hover {
+    color: white;
+    /* White text on hover */
+    background-color: #FFA500;
+    /* Orange background on hover */
+    border-color: #FFA500;
+    /* Orange border on hover */
+}
+
+.tip-margin {
+    margin-top: 30px;
 }

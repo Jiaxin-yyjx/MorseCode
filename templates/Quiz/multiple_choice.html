@@ -4,17 +4,18 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'Quiz/multiple_choice.js') }}"></script>
 
 <script>
-	let quiz_question = {{quiz_question | tojson}};
+	let quiz_question = {{ quiz_question | tojson}};
 </script>
 
 <div class="container">
-	<div class="row">
-		<div class="col-11"> <b>Identify the Morse Code:</b><br> Choose the Correct Visual from Given Words or Characters</div>
+	<div class="row tip-margin">
+		<div class="col-11"> <b>Identify the Morse Code:</b><br> Choose the Correct Visual from Given Words or
+			Characters</div>
 		<div class="col-1">{{quiz_question.question_index}}/10</div>
 	</div>
 
 
-	<div class="row justify-content-center deletemargin">
+	<div class="row justify-content-center deletemargin tip-margin">
 		<div class="col text-layout">
 			<h2>{{quiz_question.question}}</h2>
 		</div>

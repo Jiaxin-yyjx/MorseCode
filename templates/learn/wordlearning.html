@@ -11,11 +11,9 @@
             <div class="col-4 text-layout">
                 <div class="wordname">{{word}}</div>
                 {% if index > 7 %}
-                <div id="js-data" class="playcharsound" 
-                        data-word="{{ word  }}"
-                        data-index="{{ index}}" 
-                        data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ word ~ '.mp3') }}">
-                        <img src="{{url_for('static', filename='images/icon.png')}}" class="iconlayout" />
+                <div id="js-data" class="playcharsound" data-word="{{ word  }}" data-index="{{ index}}"
+                    data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ word ~ '.mp3') }}">
+                    <img src="{{url_for('static', filename='images/icon.png')}}" class="iconlayout" />
                 </div>
                 {% endif %}
             </div>
@@ -29,10 +27,9 @@
                         </div>
                     </div>
                     <div class="col text-layout justify-content-center">
-                        <div class="playcharsound" 
-                        data-letter="{{ letter }}" 
-                        data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ letter ~ '.mp3') }}">
-                        <img src="{{url_for('static', filename='images/icon.png')}}" class="iconlayout" />
+                        <div class="playcharsound" data-letter="{{ letter }}"
+                            data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ letter ~ '.mp3') }}">
+                            <img src="{{url_for('static', filename='images/icon.png')}}" class="iconlayout" />
                         </div>
                     </div>
                 </div>
@@ -50,13 +47,13 @@
             {% if index > 0 %}
             <div class="col-3">
                 <a href="{{ url_for('word_learning', index=index - 1) }}">
-                <button class="spbuttonlayout btn btn-outline-secondary">Last</button>
+                    <button class="spbuttonlayout btn btn-outline-secondary">Last</button>
                 </a>
             </div>
             {% endif %}
             <div class="col-3">
                 <a href="{{ url_for('menuchar') }}">
-                <button class="spbuttonlayout btn btn-outline-secondary">Back to Menu</button>
+                    <button class="spbuttonlayout btn btn-outline-secondary">Back to Menu</button>
                 </a>
             </div>
             <div class="col-3">

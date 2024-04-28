@@ -10,43 +10,45 @@
 
 <div class="container">
 	<div class="row justify-content-center">
-		<div class=" col-md-auto">
-			{% if quiz_score<5 %}
-			<h2>PLEASE TRY AGAIN! YOU MADE {{quiz_score}}/10 SUCCESSFULLY.</h2>
+		<div class="col-md-auto char-borad-title">
+			{% if quiz_score < 5 %} 
+				<div class="char-borad-title"> PLEASE TRY AGAIN! YOU MADE <span class="changecolor">{{ quiz_score }}/10</span> SUCCESSFULLY. </div>
 			{% else %}
-			<h2>CONGRATULATIONS! YOU MADE {{quiz_score}}/10 SUCCESSFULLY!</h2>
-			{% endif %}
+				<div class="char-borad-title"> CONGRATULATIONS! YOU MADE <span class="changecolor">{{ quiz_score}}/10</span> SUCCESSFULLY! </div>
+		{% endif %}
+		<div class="introtolearntext">
+			Click on a row to check the answer.
 		</div>
 	</div>
-	<div class="row">
-		<table class="table">
-			<thead>
-				<tr>
-					<th scope="col">Question</th>
-					<th scope="col">Result</th>
-				</tr>
-			</thead>
-			<tbody>
-			</tbody>
-		</table>
-	</div>
 </div>
-
+<div class="row">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Question</th>
+				<th scope="col">Result</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>
+</div>
 
 <div class="row justify-content-between">
 	<div class="col col-3">
 		<a href="/start">
-			<button type="button" class="btn btn-outline-secondary btn-lg">LEARNING AGAIN</button>
+			<button type="button" class="spbuttonlayout btn btn-outline-secondary btn-lg">LEARNING AGAIN</button>
 		</a>
 	</div>
 	<div class="col col-3">
 		<a href="/quiz_landing">
-			<button type="button" class="btn btn-outline-secondary btn-lg">RETAKE</button>
+			<button type="button" class="spbuttonlayout btn btn-outline-secondary btn-lg">RETAKE</button>
 		</a>
 	</div>
 	<div class="col col-3">
 		<a href="/">
-			<button type="button" class="btn btn-outline-secondary btn-lg">END SESSION</button>
+			<button type="button" class="spbuttonlayout btn btn-outline-secondary btn-lg">END SESSION</button>
 		</a>
 	</div>
 </div>
