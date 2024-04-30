@@ -1,8 +1,12 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<script>
+    let morse_code_dict = {{ morse_code_dict | tojson}};
+</script>
 <script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename = 'recordtime.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'practice.js') }}"></script>
 
 <div class="wordlearning">
     <div class="container">
@@ -43,6 +47,35 @@
             </div>
             {% endif %}
         </div>
+        <div id="practice" class="practicelayout">
+            <div class="words-menu-title">Practice Here</div>
+            {% for letter in word %}
+            <div class="input-group row justify-content-center align-items-center deletemargin" data-letter="{{ letter }}">
+                <div class="col">
+                    {{letter}}
+                </div>
+                <div class="col">
+                    <button class="buttonsize dot btn btn-orange-outline">Dot</button>
+                </div>
+                <div class="col">
+                    <button class="buttonsize dash btn btn-orange-outline">Dash</button>
+                </div>
+                <div class="col">
+                    <input type="text" class="inputField btn orangeinput" readonly>
+                </div>
+                <div class="col">
+                    <button class="buttonsize delete btn btn-orange-outline">Delete</button>
+                </div>
+                <div class="col">
+                    <button class="buttonsize submit btn btn-orange-outline">Submit</button>
+                </div>
+                <div class="col">
+                    <span class="feedback">✔ / ❌</span>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        
         <div class="row justify-content-between deletemargin">
             {% if index > 0 %}
             <div class="col-3">
