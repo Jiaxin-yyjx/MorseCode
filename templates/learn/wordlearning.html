@@ -15,7 +15,7 @@
             <div class="col-4 text-layout">
                 <div class="wordname">{{word}}</div>
                 {% if index > 7 %}
-                <div id="js-data" class="playcharsound" data-word="{{ word  }}" data-index="{{ index}}"
+                <div id="js-data" class="playwordsound" data-word="{{ word  }}" data-index="{{ index}}"
                     data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ word ~ '.mp3') }}">
                     <img src="{{url_for('static', filename='images/icon.png')}}" class="iconlayout" />
                 </div>

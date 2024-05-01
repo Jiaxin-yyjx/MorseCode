@@ -80,3 +80,32 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('svg text:not([id])').forEach(t => t.remove());
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const sounds = document.querySelectorAll('.playwordsound');
+
+    sounds.forEach(function(element) {
+        element.addEventListener('click', function() {
+            let word = this.getAttribute('data-word');
+            let audios = [];
+            let basePath = '../../static/audios/Morse-';
+            for (let i = 0; i < word.length; i++) {
+                let letter = word[i].toUpperCase();
+                let audio = new Audio(`${basePath}${letter}.mp3`);
+                audios.push(audio);
+            }
+            let index = 0;
+            function playNextAudio() {
+                if (index < audios.length) {
+                    audios[index].play();
+                    audios[index].onended = function() {
+                        index++;
+                        playNextAudio();
+                    };
+                }
+            }
+
+            playNextAudio();
+        });
+    });
+});
