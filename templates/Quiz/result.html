@@ -11,10 +11,11 @@
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-md-auto char-borad-title">
-			{% if quiz_score < 5 %} 
-				<div class="char-borad-title"> PLEASE TRY AGAIN! YOU MADE <span class="changecolor">{{ quiz_score }}/10</span> SUCCESSFULLY. </div>
-			{% else %}
-				<div class="char-borad-title"> CONGRATULATIONS! YOU MADE <span class="changecolor">{{ quiz_score}}/10</span> SUCCESSFULLY! </div>
+			{% if quiz_score < 5 %} <div class="char-borad-title"> PLEASE TRY AGAIN! YOU MADE <span
+					class="changecolor">{{ quiz_score }}/10</span> SUCCESSFULLY. </div>
+		{% else %}
+		<div class="char-borad-title"> CONGRATULATIONS! YOU MADE <span class="changecolor">{{ quiz_score}}/10</span>
+			SUCCESSFULLY! </div>
 		{% endif %}
 		<div class="introtolearntext">
 			Click on a row to check the answer.
@@ -37,7 +38,7 @@
 
 <div class="row justify-content-between">
 	<div class="col col-3">
-		<a href="/start">
+		<a href="/menuchar">
 			<button type="button" class="spbuttonlayout btn btn-outline-secondary btn-lg">LEARNING AGAIN</button>
 		</a>
 	</div>
