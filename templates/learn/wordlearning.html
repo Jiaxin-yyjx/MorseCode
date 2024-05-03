@@ -14,6 +14,9 @@
         <div class="row justify-content-center align-items-center deletemargin addpadding">
             <div class="col-4 text-layout">
                 <div class="wordname">{{word}}</div>
+                {% if 7 >= index %}
+                <div id="js-data" data-word="{{ word  }}" data-index="{{index}}"></div>
+                {% endif %}
                 {% if index > 7 %}
                 <div id="js-data" class="playwordsound" data-word="{{ word  }}" data-index="{{ index}}"
                     data-audio-url="{{ url_for('static', filename='audios/Morse-' ~ word ~ '.mp3') }}">
