@@ -23,10 +23,14 @@
 
 .title_frame {
     position: fixed;
-    top: 46%;
-    left: 50%;
+    top: 41%;
+    left: 52%;
     transform: translate(-50%, -50%);
     font-size: 45px;
+}
+
+.loc {
+    padding-left: 110px;
 }
 
 .subtitle_frame {
@@ -265,7 +269,7 @@
 .iconlayout {
     width: 80px;
     height: auto;
-   cursor: pointer;
+    cursor: pointer;
 }
 
 .playcharsound {
